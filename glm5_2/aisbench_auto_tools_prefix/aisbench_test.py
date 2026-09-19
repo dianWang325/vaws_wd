@@ -21,6 +21,8 @@ def parse_arguments():
     parser.add_argument("--concurrency", type=str, default="2048", help="max concurrency")
     parser.add_argument("--request_rate", type=str, default="0", help="request rate")
     parser.add_argument("--test_type", type=str, default="stream", help="text or stream")
+    parser.add_argument("--api_type", choices=("chat", "completions"), default="chat",
+                        help="OpenAI API endpoint family")
     parser.add_argument("--dataset", type=str, default="none", help="dataset path")
     parser.add_argument("--repeat", type=int, default=1, help="number of test repeat times")
     parser.add_argument("--enable_think", action='store_true', default=False, help="enable thinking for ds v3.1")
@@ -131,6 +133,8 @@ def modify_aisbench_api(concurrency, output_len, request_rate_param=None):
             generation_kwargs = "temperature=0.6,\n\t\t\ttop_p = 0.95"
         else:
             generation_kwargs = "temperature=0,\n\t\t\tignore_eos=True"
+        if api_type == "completions":
+            generation_kwargs += ",\n\t\t\tadd_special_tokens=False"
         if enable_think:
             generation_kwargs = generation_kwargs + ",\n\t\t\tchat_template_kwargs={\"enable_thinking\": True}"
         tt = re.sub("generation_kwargs_for_replace", generation_kwargs.expandtabs(4), tt)
@@ -309,6 +313,7 @@ if __name__ == '__main__':
     concurrency = args.concurrency
     request_rate = args.request_rate
     test_type = args.test_type
+    api_type = args.api_type
     dataset_path_input = args.dataset
     test_times = args.repeat
     enable_think = args.enable_think
@@ -358,6 +363,7 @@ if __name__ == '__main__':
     logging.info(f"concurrency: {concurrency}")
     logging.info(f"request rate: {request_rate}")
     logging.info(f"test type: {test_type}")
+    logging.info(f"api type: {api_type}")
     logging.info(f"test_times: {test_times}")
     logging.info(f"v3.1 enable_think: {enable_think}")
     logging.info(f"accuracy test: {test_accuracy}")
@@ -373,13 +379,18 @@ if __name__ == '__main__':
     logging.info(f"length_min: {length_min}")
     logging.info(f"length_max: {length_max}")
 
-    # 区分流式和非流式
-    if test_type == "text":
+    # Choose the endpoint independently from stream mode.
+    if api_type == "completions" and enable_think:
+        raise ValueError("--enable_think is only supported by the chat API")
+    if api_type == "completions" and test_type == "text":
+        api_test_type = "VLLMCustomAPI"
+        api_test_abbr = "vllm-api-general-completions"
+    elif api_type == "completions":
+        api_test_type = "VLLMCustomAPIStream"
+        api_test_abbr = "vllm-api-stream-completions"
+    elif test_type == "text":
         api_test_type = "VLLMCustomAPIChat"
         api_test_abbr = "vllm-api-general-chat"
-    elif test_type == "stream":
-        api_test_type = "VLLMCustomAPIChatStream"
-        api_test_abbr = "vllm-api-stream-chat"
     else:
         api_test_type = "VLLMCustomAPIChatStream"
         api_test_abbr = "vllm-api-stream-chat"

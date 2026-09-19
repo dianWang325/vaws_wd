@@ -43,7 +43,7 @@ export TASK_QUEUE_ENABLE=1
 export VLLM_ENGINE_READY_TIMEOUT_S=100000
 export VLLM_RPC_TIMEOUT=3600000
 export VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=30000
-export VLLM_PP_LAYER_PARTITION=41,37
+export VLLM_PP_LAYER_PARTITION=38,40
 
 vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --seed 1024 \
@@ -51,7 +51,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --port 9000 \
   --served-model-name glm-52 \
   --max-model-len 1024000 \
-  --max-num-batched-tokens 16384 \
+  --max-num-batched-tokens 32768 \
   --gpu-memory-utilization 0.75 \
   "${server_role_args[@]}" \
   --max-num-seqs 8 \
@@ -73,7 +73,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
       "enable_npugraph_ex": true,
       "enable_static_kernel": false
     },
-    "fuse_muls_add": true,
     "multistream_overlap_shared_expert": true,
     "enable_mc2_hierarchy_comm": false,
     "enable_sparse_sfa_c8": true,

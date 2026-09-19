@@ -33,7 +33,8 @@ cd "$tool_dir"
 }
 
 args=(--input_len "$input_len" --output_len "$output_len" --data_num "$data_num"
-  --concurrency "$concurrency" --request_rate 0 --dataset_type normal)
+  --concurrency "$concurrency" --request_rate 0 --dataset_type normal
+  --api_type completions --test_type stream)
 
 # The toolbox checks a fixed-length filename even for variable-length datasets.
 # Select its variable dataset explicitly; create it with its own generator only if absent.

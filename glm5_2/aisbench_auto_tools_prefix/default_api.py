@@ -16,8 +16,7 @@ models = [
         max_out_len=outputlen_for_replace,
         batch_size=concurrency_for_replace,
         generation_kwargs=dict(
-            temperature=0,
-            ignore_eos=True,
+            generation_kwargs_for_replace
         )
     )
 ]
