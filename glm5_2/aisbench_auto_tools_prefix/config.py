@@ -1,9 +1,11 @@
+from pathlib import Path
+
 # 数据集文件夹路径，需可访问(请使用绝对路径)
 DATASET_PATH = "/home/w00985415/vaws_wd/glm5_2/datasets"
 
 # aisbench 工作路径, 为 git clone aisbench 后得到的 benchmark 目录的绝对路径
 # 可通过命令 `pip show ais-bench-benchmark` 查询location
-WORK_PATH = "/home/benchmark"
+WORK_PATH = "/home/w00985415/benchmark"
 
 # 服务化配置的模型名称
 MODEL_NAME = "glm-52"
@@ -24,7 +26,7 @@ API_KEY = ""
 DEFAULT_PERFORMANCE_TEST = "default_perf"
 
 # aisbench输出日志保存路径
-OUTPUT_DIR = "./outputs/default"
+OUTPUT_DIR = str(Path(__file__).resolve().parent.parent / "outputs" / "default")
 
 # 各节点信息，格式为 ["{ip}:{port}"]
 # 用于查询vllm metrics计算各个dp域的prefix cache命中率，不配置默认为HOST_IP:HOST_PORT
