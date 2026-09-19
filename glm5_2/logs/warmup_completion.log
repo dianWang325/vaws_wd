@@ -1,0 +1,12 @@
+2026-09-19T23:17:46+08:00 reusing dataset /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K-in1023999-num5-GLM-5.2-W4A8C8-0713-MTP.jsonl
+2026-09-19T23:17:46+08:00 sending 1/5 bytes=4329671
+{"time": "2026-09-19T23:26:13+08:00", "index": 1, "http_status": 200, "sse_done": true, "elapsed_seconds": 507.19, "detail": ""}
+2026-09-19T23:26:14+08:00 sending 2/5 bytes=4367185
+{"time": "2026-09-19T23:34:34+08:00", "index": 2, "http_status": 200, "sse_done": true, "elapsed_seconds": 500.23, "detail": ""}
+2026-09-19T23:34:34+08:00 sending 3/5 bytes=4160804
+{"time": "2026-09-19T23:42:54+08:00", "index": 3, "http_status": 200, "sse_done": true, "elapsed_seconds": 500.21, "detail": ""}
+2026-09-19T23:42:54+08:00 sending 4/5 bytes=4157797
+{"time": "2026-09-19T23:51:14+08:00", "index": 4, "http_status": 200, "sse_done": true, "elapsed_seconds": 499.69, "detail": ""}
+2026-09-19T23:51:14+08:00 sending 5/5 bytes=4134036
+{"time": "2026-09-19T23:59:34+08:00", "index": 5, "http_status": 200, "sse_done": true, "elapsed_seconds": 499.8, "detail": ""}
+2026-09-19T23:59:34+08:00 completed all 5 warmup requests; dataset=/home/w00985415/vaws_wd/glm5_2/datasets/GSM8K-in1023999-num5-GLM-5.2-W4A8C8-0713-MTP.jsonl; results=/home/w00985415/vaws_wd/glm5_2/logs/warmup_completion_results.jsonl

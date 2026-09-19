@@ -1,0 +1,26 @@
+2026-09-20T00:14:46+08:00 starting prefill_fix concurrency=4 requests=24 endpoint=http://127.0.0.1:9000/v1/completions
+{"time": "2026-09-20T00:15:01+08:00", "index": 2, "http_status": 200, "sse_done": true, "first_chunk_seconds": 15.079, "first_token_seconds": 15.079, "elapsed_seconds": 15.08, "detail": ""}
+{"time": "2026-09-20T00:15:13+08:00", "index": 3, "http_status": 200, "sse_done": true, "first_chunk_seconds": 27.291, "first_token_seconds": 27.291, "elapsed_seconds": 27.291, "detail": ""}
+{"time": "2026-09-20T00:15:26+08:00", "index": 1, "http_status": 200, "sse_done": true, "first_chunk_seconds": 39.607, "first_token_seconds": 39.607, "elapsed_seconds": 39.607, "detail": ""}
+{"time": "2026-09-20T00:15:38+08:00", "index": 4, "http_status": 200, "sse_done": true, "first_chunk_seconds": 51.906, "first_token_seconds": 51.906, "elapsed_seconds": 51.906, "detail": ""}
+{"time": "2026-09-20T00:15:50+08:00", "index": 5, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.109, "first_token_seconds": 49.109, "elapsed_seconds": 49.109, "detail": ""}
+{"time": "2026-09-20T00:16:03+08:00", "index": 6, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.206, "first_token_seconds": 49.206, "elapsed_seconds": 49.206, "detail": ""}
+{"time": "2026-09-20T00:16:15+08:00", "index": 7, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.15, "first_token_seconds": 49.15, "elapsed_seconds": 49.15, "detail": ""}
+{"time": "2026-09-20T00:16:27+08:00", "index": 8, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.09, "first_token_seconds": 49.09, "elapsed_seconds": 49.09, "detail": ""}
+{"time": "2026-09-20T00:16:39+08:00", "index": 9, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.017, "first_token_seconds": 49.017, "elapsed_seconds": 49.017, "detail": ""}
+{"time": "2026-09-20T00:16:52+08:00", "index": 10, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.018, "first_token_seconds": 49.018, "elapsed_seconds": 49.018, "detail": ""}
+{"time": "2026-09-20T00:17:04+08:00", "index": 11, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.049, "first_token_seconds": 49.049, "elapsed_seconds": 49.049, "detail": ""}
+{"time": "2026-09-20T00:17:16+08:00", "index": 12, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.038, "first_token_seconds": 49.038, "elapsed_seconds": 49.038, "detail": ""}
+{"time": "2026-09-20T00:17:28+08:00", "index": 13, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.075, "first_token_seconds": 49.075, "elapsed_seconds": 49.075, "detail": ""}
+{"time": "2026-09-20T00:17:41+08:00", "index": 14, "http_status": 200, "sse_done": true, "first_chunk_seconds": 48.978, "first_token_seconds": 48.978, "elapsed_seconds": 48.978, "detail": ""}
+{"time": "2026-09-20T00:17:53+08:00", "index": 15, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.065, "first_token_seconds": 49.065, "elapsed_seconds": 49.066, "detail": ""}
+{"time": "2026-09-20T00:18:05+08:00", "index": 16, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.085, "first_token_seconds": 49.086, "elapsed_seconds": 49.086, "detail": ""}
+{"time": "2026-09-20T00:18:17+08:00", "index": 17, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.065, "first_token_seconds": 49.065, "elapsed_seconds": 49.065, "detail": ""}
+{"time": "2026-09-20T00:18:30+08:00", "index": 18, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.183, "first_token_seconds": 49.183, "elapsed_seconds": 49.183, "detail": ""}
+{"time": "2026-09-20T00:18:42+08:00", "index": 19, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.166, "first_token_seconds": 49.166, "elapsed_seconds": 49.166, "detail": ""}
+{"time": "2026-09-20T00:18:55+08:00", "index": 20, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.253, "first_token_seconds": 49.253, "elapsed_seconds": 49.253, "detail": ""}
+{"time": "2026-09-20T00:19:07+08:00", "index": 21, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.31, "first_token_seconds": 49.31, "elapsed_seconds": 49.31, "detail": ""}
+{"time": "2026-09-20T00:19:19+08:00", "index": 22, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.232, "first_token_seconds": 49.232, "elapsed_seconds": 49.232, "detail": ""}
+{"time": "2026-09-20T00:19:31+08:00", "index": 23, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.17, "first_token_seconds": 49.17, "elapsed_seconds": 49.17, "detail": ""}
+{"time": "2026-09-20T00:19:44+08:00", "index": 24, "http_status": 200, "sse_done": true, "first_chunk_seconds": 49.217, "first_token_seconds": 49.217, "elapsed_seconds": 49.217, "detail": ""}
+SUMMARY {"time": "2026-09-20T00:19:44+08:00", "concurrency": 4, "requests": 24, "success": 24, "wall_seconds": 297.605, "dataset": "/home/w00985415/vaws_wd/glm5_2/datasets/GSM8K-in65536-num24-GLM-5.2-W4A8C8-0713-MTP.jsonl", "results": "/home/w00985415/vaws_wd/glm5_2/logs/prefill_fix_completion_c4_results.jsonl"}
