@@ -1,0 +1,8 @@
+name: service_overview
+profile:
+  prof_dir: ./profiles/{experiment}/{node}
+  acl_task_time: 0
+  acl_prof_task_time_level: ""
+# Without additions, the installed profiler's default symbols are used.
+symbols:
+  add: []

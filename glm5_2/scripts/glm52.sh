@@ -51,7 +51,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --port 9000 \
   --served-model-name glm-52 \
   --max-model-len 1024000 \
-  --max-num-batched-tokens 32768 \
+  --max-num-batched-tokens 20480 \
   --gpu-memory-utilization 0.75 \
   "${server_role_args[@]}" \
   --max-num-seqs 8 \

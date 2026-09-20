@@ -1,0 +1,6 @@
+{
+  "enable": 0,
+  "prof_dir": "./vllm_prof",
+  "acl_task_time": 0,
+  "acl_prof_task_time_level": ""
+}
