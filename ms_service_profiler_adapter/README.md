@@ -4,7 +4,7 @@
 
 ## 每类探测一份 YAML
 
-`experiments/service_overview.yaml` 是不指定模型运行器和并行拓扑的基础探测，使用安装包自带的默认符号。`experiments/ttft_worker_v2.yaml` 示范如何为 MRV2 增加 worker 和 model runner 计时点。可复制 YAML 形成新的实验，分别设置采集目录、采集级别、时长和追加符号：
+`experiments/service_overview.yaml` 是不指定模型运行器和并行拓扑的基础探测，使用安装包自带的默认符号。`experiments/ttft_worker_v2.yaml` 示范如何为 MRV2 增加 worker 和 model runner 计时点。`experiments/glm52_dp2_pp2_tp8_dsacp_ttft.yaml` 沿用这些计时点，为 GLM-5.2 的 DP2/PP2/TP8 DSA-CP 实验使用独立的采集目录；并行拓扑和 `VLLM_USE_V2_MODEL_RUNNER=1` 由 `glm5_2/scripts/glm52_dsacp_V2.sh` 设置。该实验在两个节点分别使用 `--node head` 和 `--node worker` 准备及开关采集。可复制 YAML 形成新的实验，分别设置采集目录、采集级别、时长和追加符号：
 
 ```yaml
 name: my_experiment

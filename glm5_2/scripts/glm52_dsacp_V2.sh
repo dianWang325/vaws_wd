@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# GLM-5.2 1M, DP1/TP16/PP2 on 80.5.17.110 and 80.5.17.107.
-# Run as: bash /mnt/glm52_1m_dp1_tp16_pp2_rc1_17_110_107.sh head|worker
+# GLM-5.2, DP2/PP2/TP8 with DSA-CP on 80.5.17.110 and 80.5.17.107.
+# Each 16-card node hosts one DP replica with two local pipeline stages.
+# Run as: bash glm5_2/scripts/glm52_dsacp_V2.sh head|worker
 set -euo pipefail
 
 role="${1:?expected head or worker}"
@@ -21,7 +22,7 @@ esac
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
 mkdir -p "$log_dir"
-exec > "${log_dir}/glm52_1m_dp1_tp16_pp2_rc1_${role}.log" 2>&1
+exec > "${log_dir}/glm52_dp2_pp2_tp8_dsacp_${role}.log" 2>&1
 
 export VLLM_HOST_IP="$local_ip"
 export HCCL_IF_IP="$local_ip"
@@ -29,6 +30,7 @@ export GLOO_SOCKET_IFNAME=enp48s3u1u1
 export TP_SOCKET_IFNAME=enp48s3u1u1
 export HCCL_SOCKET_IFNAME=enp48s3u1u1
 export VLLM_ASCEND_ENABLE_NZ=1
+export VLLM_USE_V2_MODEL_RUNNER=1
 export HCCL_OP_EXPANSION_MODE=AIV
 export OMP_PROC_BIND=false
 export OMP_NUM_THREADS=20
@@ -56,19 +58,25 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   "${server_role_args[@]}" \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
+  --data-parallel-size 2 \
+  --data-parallel-size-local 1 \
+  --data-parallel-start-rank "$node_rank" \
+  --data-parallel-address 80.5.17.110 \
+  --data-parallel-rpc-port 16591 \
   --pipeline-parallel-size 2 \
-  --tensor-parallel-size 16 \
+  --tensor-parallel-size 8 \
   --distributed-executor-backend mp \
   --nnodes 2 \
   --node-rank "$node_rank" \
   --master-addr 80.5.17.110 \
   --master-port 7060 \
   --prefill-context-parallel-size 1 \
-  --decode-context-parallel-size 16 \
+  --decode-context-parallel-size 8 \
   --cp-kv-cache-interleave-size 128 \
   --enforce-eager \
   --additional-config '{
     "enable_flashcomm1": true,
+    "enable_dsa_cp": true,
     "ascend_compilation_config": {
       "enable_npugraph_ex": true,
       "enable_static_kernel": false

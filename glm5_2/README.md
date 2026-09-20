@@ -28,13 +28,13 @@
 
 | 阶段 | 每条输入 token | 每条输出 token | 请求数 | 默认并发 | 重点指标 |
 | --- | ---: | ---: | ---: | ---: | --- |
-| `warmup` | `MODEL_MAX_LEN - 1`，默认 1,023,999 | 1 | 5 | 1 | 成功数、TTFT |
-| `prefill_fix` | 65,536 | 1 | 24 | 1 | TTFT、prefill 吞吐 |
+| `warmup` | `MODEL_MAX_LEN - 1`，默认 204,799 | 1 | 5 | 1 | 成功数、TTFT |
+| `prefill_fix` | 65,536 | 1 | 24 | 2 | TTFT、prefill 吞吐 |
 | `prefill_variable` | 40,960～81,920，目标均值 65,536 | 1 | 24 | 1 | TTFT、prefill 吞吐 |
 | `fix` | 65,536 | 2,560 | 24 | 1 | TTFT、TPOT、吞吐 |
 | `variable` | 40,960～81,920，目标均值 65,536 | 2,560 | 24 | 1 | TTFT、TPOT、吞吐 |
 
-每次命令仅运行指定阶段。`warmup` 使用独立的 1M 输入数据集；`prefill_fix` 与 `fix` 共用 64K 输入数据集，`prefill_variable` 与 `variable` 共用变长输入数据集。工具箱以 GSM8K 文本和模型 tokenizer 生成数据。定长数据集由工具箱自身按文件名判断是否复用；变长数据集由入口脚本按工具箱生成的文件名判断是否存在，缺失时调用工具箱的 `create_multi_prefix_dataset` 生成，再通过工具箱支持的 `--dataset` 参数压测。这一步是为了避开工具箱当前变长分支误用定长文件名判断存在性的行为。变长采用工具箱的截断高斯参数：目标均值 65,536、标准差 16,384、下限 40,960、上限 81,920；24 条的实际算术均值及端点覆盖不保证精确值。前缀缓存由服务启动脚本控制。
+每次命令仅运行指定阶段。当前 `warmup` 使用独立的 200K 输入数据集；历史 1M 预热数据保留供回溯。`prefill_fix` 与 `fix` 共用 64K 输入数据集，`prefill_variable` 与 `variable` 共用变长输入数据集。工具箱以 GSM8K 文本和模型 tokenizer 生成数据。定长数据集由工具箱自身按文件名判断是否复用；变长数据集由入口脚本按工具箱生成的文件名判断是否存在，缺失时调用工具箱的 `create_multi_prefix_dataset` 生成，再通过工具箱支持的 `--dataset` 参数压测。这一步是为了避开工具箱当前变长分支误用定长文件名判断存在性的行为。变长采用工具箱的截断高斯参数：目标均值 65,536、标准差 16,384、下限 40,960、上限 81,920；24 条的实际算术均值及端点覆盖不保证精确值。前缀缓存由服务启动脚本控制。
 
 工具箱位于本目录内的 `aisbench_auto_tools_prefix/`；也可用 `AISBENCH_TOOL_DIR` 指向其他位置。先按[工具箱 README](https://github.com/rayn-zzz/aisbench_auto_tools_prefix#%E4%B8%80%E4%BF%AE%E6%94%B9configpy)准备 AISBench 环境，并设置工具箱 `config.py` 中的 `DATASET_PATH`、`WORK_PATH`、`MODEL_NAME`、`MODEL_PATH`、`HOST_IP`、`HOST_PORT` 与 `OUTPUT_DIR`。待服务健康后，分别执行：
 
@@ -46,7 +46,7 @@ bash scripts/run_aisbench.sh fix
 bash scripts/run_aisbench.sh variable
 ```
 
-`MODEL_MAX_LEN` 默认 1,024,000；非 warmup 阶段可通过 `CONCURRENCY` 调整并发，默认 1。工具箱的 `aisbench.log`、`aisbench_all.log`、`aisbench_result.csv` 和 `OUTPUT_DIR` 保存测试结果。工具箱默认使用流式 Chat API、`temperature=0`、`ignore_eos=True`，并在 AISBench 命令中指定 `--num-warmups 0`；若所装 AISBench 版本不支持该选项，参照工具箱 FAQ 处理。
+`MODEL_MAX_LEN` 默认 204,800，需与服务的 `--max-model-len` 保持一致；`prefill_fix` 默认并发 2，其他非 warmup 阶段默认并发 1，均可通过 `CONCURRENCY` 覆盖；`warmup` 固定并发 1。工具箱的 `aisbench.log`、`aisbench_all.log`、`aisbench_result.csv` 和 `OUTPUT_DIR` 保存测试结果。工具箱默认使用流式 Chat API、`temperature=0`、`ignore_eos=True`，并在 AISBench 命令中指定 `--num-warmups 0`；若所装 AISBench 版本不支持该选项，参照工具箱 FAQ 处理。
 
 工具箱的性能结果包含 TTFT、TPOT 和吞吐等指标。输出 1 token 的阶段不看 TPOT；输出 2,560 token 的阶段还看 TPOT。指标由工具箱调用的 AISBench 计算，阶段参数不单独开关指标。
 

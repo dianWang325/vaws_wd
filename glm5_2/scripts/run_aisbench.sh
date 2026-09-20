@@ -8,17 +8,23 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 tool_dir="${AISBENCH_TOOL_DIR:-$script_dir/../aisbench_auto_tools_prefix}"
 case "$stage" in
   warmup)
-    input_len="$((${MODEL_MAX_LEN:-1024000} - 1))"
+    input_len="$((${MODEL_MAX_LEN:-204800} - 1))"
     output_len=1
     data_num=5
     concurrency=1
     ;;
-  prefill_fix|prefill_variable|fix|variable)
+  prefill_fix)
+    input_len=65536
+    output_len=1
+    data_num=24
+    concurrency="${CONCURRENCY:-2}"
+    ;;
+  prefill_variable|fix|variable)
     input_len=65536
     data_num=24
     concurrency="${CONCURRENCY:-1}"
     case "$stage" in
-      prefill_fix|prefill_variable) output_len=1 ;;
+      prefill_variable) output_len=1 ;;
       fix|variable) output_len=2560 ;;
     esac
     ;;
