@@ -73,6 +73,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
       "enable_npugraph_ex": true,
       "enable_static_kernel": false
     },
+    "scheduler_config": {"profiling_chunk_config": {"enabled": true}},
     "multistream_overlap_shared_expert": true,
     "enable_mc2_hierarchy_comm": false,
     "enable_sparse_sfa_c8": true,
