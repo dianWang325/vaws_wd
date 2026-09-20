@@ -47,6 +47,9 @@ export VLLM_RPC_TIMEOUT=3600000
 export VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=30000
 export VLLM_PP_LAYER_PARTITION=38,40
 
+# Internal DP load balancing keeps the worker headless. With --nnodes 2,
+# --node-rank infers DP rank 0/1; --data-parallel-start-rank would switch
+# the head to external/hybrid load balancing when local DP size is 1.
 vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --seed 1024 \
   --host 0.0.0.0 \
@@ -60,7 +63,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --no-enable-prefix-caching \
   --data-parallel-size 2 \
   --data-parallel-size-local 1 \
-  --data-parallel-start-rank "$node_rank" \
   --data-parallel-address 80.5.17.110 \
   --data-parallel-rpc-port 16591 \
   --pipeline-parallel-size 2 \
@@ -89,7 +91,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
     "enable_cpu_binding": true,
     "recompute_scheduler_enable": false
   }' \
-  --speculative-config '{"num_speculative_tokens": 1, "method": "deepseek_mtp", "enforce_eager": true}' \
   --quantization ascend \
   --enable-expert-parallel \
   --safetensors-load-strategy prefetch
