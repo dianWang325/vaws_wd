@@ -1,3 +1,5 @@
+nic_name="eth0"  # network card name
+local_ip="192.0.0.1"
 export OMP_PROC_BIND=false
 export OMP_NUM_THREADS=10
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
@@ -19,6 +21,7 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
     --tensor-parallel-size 8 \
     --enable-expert-parallel \
     --enable-chunked-prefill \
+    --no-async-scheduling \
     --tokenizer-mode deepseek_v4 \
     --model-loader-extra-config='{"enable_multithread_load": true, "num_threads": 128}' \
     --quantization ascend \
@@ -33,7 +36,12 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
         "enable_static_kernel": false
         },
     "scheduler_config": {
-        "profiling_chunk_config": {"enabled": true}
+        "profiling_chunk_config": {"enabled": true},
+        "short_request_first_config": {
+            "enabled": true,
+            "threshold": 66560,
+            "long_max_wait_ms": 2000
+            }
         },
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}'
