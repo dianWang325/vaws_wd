@@ -18,10 +18,13 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
     --pipeline-parallel-size 2 \
     --tensor-parallel-size 8 \
     --enable-expert-parallel \
+    --enable-chunked-prefill \
+    --no-async-scheduling \
     --tokenizer-mode deepseek_v4 \
     --model-loader-extra-config='{"enable_multithread_load": true, "num_threads": 128}' \
     --quantization ascend \
     --port 18080 \
+    --no-enable-prefix-caching \
     --block-size 32 \
     --attention_config.indexer_kv_dtype int8 \
     --compilation-config '{"cudagraph_mode": "FULL_DECODE_ONLY"}' \
@@ -29,6 +32,14 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
     {"ascend_compilation_config":{
         "enable_npugraph_ex": true,
         "enable_static_kernel": false
+        },
+    "scheduler_config": {
+        "profiling_chunk_config": {"enabled": true},
+        "short_request_first_config": {
+            "enabled": true,
+            "threshold": 66560,
+            "long_max_wait_ms": 2000
+            }
         },
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}'

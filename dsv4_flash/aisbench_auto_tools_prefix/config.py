@@ -5,7 +5,7 @@ DATASET_PATH = "/home/w00985415/vaws_wd/dsv4_flash/datasets"
 
 # aisbench 工作路径, 为 git clone aisbench 后得到的 benchmark 目录的绝对路径
 # 可通过命令 `pip show ais-bench-benchmark` 查询location
-WORK_PATH = "/home/w00985415/benchmark"
+WORK_PATH = "/usr/local/python3.11.10/lib/python3.11/site-packages"
 
 # 服务化配置的模型名称
 MODEL_NAME = "dsv4"
