@@ -1,4 +1,4 @@
-# PD 分离部署 - Prefill 节点（TCP 跨机，MooncakeConnectorV1）
+# PD 分离部署 - Prefill 节点（TCP 跨机，MooncakeHybridConnector）
 # 目标机：80.48.33.119（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 与 prefill_node.sh 的差异：网卡/IP 环境变量填实 + 新增 socket/超时环境变量 + 新增 --kv-transfer-config
 # 并行配置未改动：PP2 x TP8
@@ -63,12 +63,9 @@ vllm serve /mnt/share/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}' \
     --kv-transfer-config '
-    {"kv_connector": "MooncakeConnectorV1",
-     "kv_buffer_device": "npu",
+    {"kv_connector": "MooncakeHybridConnector",
      "kv_role": "kv_producer",
-     "kv_parallel_size": 1,
      "kv_port": "30100",
-     "kv_rank": 0,
      "engine_id": "0",
      "kv_connector_extra_config": {
          "prefill": {"dp_size": 1, "tp_size": 8, "pp_size": 2},
