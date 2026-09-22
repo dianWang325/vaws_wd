@@ -130,7 +130,7 @@ def modify_aisbench_api(concurrency, output_len, request_rate_param=None):
         tt = re.sub("outputlen_for_replace", output_len, tt)
         tt = re.sub("concurrency_for_replace", concurrency, tt)
         if test_accuracy:
-            generation_kwargs = "temperature=0.6,\n\t\t\ttop_p = 0.95"
+            generation_kwargs = "temperature=1.0,\n\t\t\ttop_p = 0.95"
         else:
             generation_kwargs = "temperature=0,\n\t\t\tignore_eos=True"
         if api_type == "completions":
