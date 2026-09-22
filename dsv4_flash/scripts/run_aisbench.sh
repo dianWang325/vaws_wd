@@ -16,12 +16,12 @@ case "$stage" in
   prefill_fix)
     input_len=65536
     output_len=1
-    data_num=24
+    data_num=6
     concurrency="${CONCURRENCY:-2}"
     ;;
   prefill_variable|fix|variable)
     input_len=65536
-    data_num=24
+    data_num=6
     concurrency="${CONCURRENCY:-1}"
     case "$stage" in
       prefill_variable) output_len=1 ;;

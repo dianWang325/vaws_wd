@@ -56,7 +56,7 @@ vllm serve /mnt/share/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}' \
     --kv-transfer-config '
-    {"kv_connector": "MooncakeHybridConnector",
+    {"kv_connector": "MooncakeConnectorV2",
      "kv_role": "kv_consumer",
      "kv_port": "30200",
      "engine_id": "1",
