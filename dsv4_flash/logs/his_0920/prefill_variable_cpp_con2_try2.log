@@ -1,177 +1,0 @@
-2026-09-21 11:56:45,801 - INFO - get env LANG = C.UTF-8
-2026-09-21 11:56:45,802 - INFO - aisbench.log has been cleared for this run.
-2026-09-21 11:56:45,802 - INFO - aisbench_all.log separator added for this run.
-2026-09-21 11:56:45,802 - INFO - input token length: 65536
-2026-09-21 11:56:45,803 - INFO - output token length: 1
-2026-09-21 11:56:45,803 - INFO - number of dataset: 24
-2026-09-21 11:56:45,803 - INFO - concurrency: 2
-2026-09-21 11:56:45,803 - INFO - request rate: 0
-2026-09-21 11:56:45,803 - INFO - test type: stream
-2026-09-21 11:56:45,803 - INFO - api type: completions
-2026-09-21 11:56:45,803 - INFO - test_times: 1
-2026-09-21 11:56:45,803 - INFO - v3.1 enable_think: False
-2026-09-21 11:56:45,803 - INFO - accuracy test: False
-2026-09-21 11:56:45,803 - INFO - npu numbers: 1
-2026-09-21 11:56:45,803 - INFO - prefix numbers: 1
-2026-09-21 11:56:45,803 - INFO - dataset repeat rate: 0.0
-2026-09-21 11:56:45,803 - INFO - test prefix dataset: False
-2026-09-21 11:56:45,803 - INFO - dataset type: normal
-2026-09-21 11:56:45,803 - INFO - seed: 1
-2026-09-21 11:56:45,803 - INFO - dp size: 1
-2026-09-21 11:56:45,803 - INFO - length_mean: None
-2026-09-21 11:56:45,803 - INFO - length_std: None
-2026-09-21 11:56:45,803 - INFO - length_min: None
-2026-09-21 11:56:45,804 - INFO - length_max: None
-2026-09-21 11:56:45,804 - INFO - test start, use command: ais_bench --models vllm_api_chat_temp --datasets gsm8k_gen_0_shot_cot_str_perf --mode perf --summarizer default_perf --work-dir /home/w00985415/vaws_wd/dsv4_flash/outputs/default --debug --num-warmups 0 2>&1 | tee -a aisbench.log | tee -a aisbench_all.log
-2026-09-21 11:56:45,804 - INFO - [开始] 全量数据集测试
-2026-09-21 11:56:45,804 - INFO - Api config file:
-2026-09-21 11:56:45,805 - INFO - make symlink: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/models/vllm_api/vllm_api_chat_temp.py ==> /home/w00985415/vaws_wd/dsv4_flash/aisbench_auto_tools_prefix/temp_api.py
-2026-09-21 11:56:45,805 - INFO - src_file: /home/w00985415/vaws_wd/dsv4_flash/datasets/GSM8K-G65536_16384_C40960_81920-num24-DeepSeek-V4-Flash-w8a8-mtp.jsonl
-2026-09-21 11:56:45,805 - INFO - dst_file: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/datasets/gsm8k/test.jsonl
-2026-09-21 11:56:45,805 - INFO - make symlink: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/datasets/gsm8k/test.jsonl ==> /home/w00985415/vaws_wd/dsv4_flash/datasets/GSM8K-G65536_16384_C40960_81920-num24-DeepSeek-V4-Flash-w8a8-mtp.jsonl
-[2026-09-21 11:56:55,155] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
-[2026-09-21 11:56:55,162] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
-[2026-09-21 11:56:55,164] [ais_bench] [[32mINFO[0m] Loading default_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/perf/default_perf.py
-[2026-09-21 11:56:55,165] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260921_115646
-[2026-09-21 11:56:55,173] [ais_bench] [[32mINFO[0m] Starting inference tasks...
-[2026-09-21 11:56:55,174] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
-[2026-09-21 11:56:55,174] [ais_bench] [[32mINFO[0m] Merging datasets with the same model and inferencer...
-[2026-09-21 11:56:55,219] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 97095, Refresh interval: 0.5, Run in background: True
-[2026-09-21 11:57:05,360] [ais_bench] [[32mINFO[0m] Debug mode, print progress directly
-[2026-09-21 11:57:05,362] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-completions/gsm8k]
-[2026-09-21 11:57:05,429] [ais_bench] [[32mINFO[0m] Zero Retriever initialized, returning empty shot case for all queries
-[2026-09-21 11:57:05,443] [ais_bench] [[32mINFO[0m] Apply ice template finished
-[2026-09-21 11:57:05,444] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIStream is deprecated, please use VLLMCustomAPI with stream=True instead.
-[2026-09-21 11:57:05,445] [ais_bench] [[32mINFO[0m] Warmup size is 0, skip...
-[2026-09-21 11:57:05,446] [ais_bench] [[32mINFO[0m] Dataset needed memory size: 5.93549824 MB
-[2026-09-21 11:57:05,446] [ais_bench] [[32mINFO[0m] Memory usage check passed: 30.64% < 80% (Available: 1276.30 GB)
-[2026-09-21 11:57:05,450] [ais_bench] [[33mWARNING[0m] The request rate is below 0.1, resulting in an excessively long interval between two consecutive requests.
-[2026-09-21 11:57:05,450] [ais_bench] [[32mINFO[0m] Traffic request rate: 0 RPS with burstiness 1.0.
-[2026-09-21 11:57:05,450] [ais_bench] [[32mINFO[0m] Request rate (0.0) or ramp end rps (None) < 0.001, sending all requests simultaneously
-[2026-09-21 11:57:05,451] [ais_bench] [[32mINFO[0m] Debug mode, run with concurrency: 2
-[2026-09-21 11:57:05,551] [ais_bench] [[32mINFO[0m] All subprocesses have finished deserializing the first batch of data
-[2026-09-21 11:57:05,651] [ais_bench] [[32mINFO[0m] Starting progress bar Total data num: 24 Finished data num: 0 Left data num: 24
-Progress:   0%|          | 0/24 [00:00<?, ?case/s]
-[A
-POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
-POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
-POST=2 (2.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
-POST=2 (2.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [AProgress:   8%|▊         | 2/24 [00:01<00:19,  1.11case/s]
-POST=4 (2.0/s)  RECV=2 (2.0/s)  FAIL=0 (0.0/s)  FIN=2 (2.0/s)   [A
-POST=4 (2.0/s)  RECV=2 (2.0/s)  FAIL=0 (0.0/s)  FIN=2 (2.0/s)   [AProgress:  17%|█▋        | 4/24 [00:02<00:13,  1.50case/s]
-POST=6 (2.0/s)  RECV=4 (2.0/s)  FAIL=0 (0.0/s)  FIN=4 (2.0/s)   [A
-POST=6 (2.0/s)  RECV=4 (2.0/s)  FAIL=0 (0.0/s)  FIN=4 (2.0/s)   [AProgress:  25%|██▌       | 6/24 [00:03<00:10,  1.69case/s]
-POST=8 (2.0/s)  RECV=6 (2.0/s)  FAIL=0 (0.0/s)  FIN=6 (2.0/s)   [A
-POST=8 (2.0/s)  RECV=6 (2.0/s)  FAIL=0 (0.0/s)  FIN=6 (2.0/s)   [AProgress:  33%|███▎      | 8/24 [00:04<00:08,  1.80case/s]
-POST=10 (2.0/s)  RECV=8 (2.0/s)  FAIL=0 (0.0/s)  FIN=8 (2.0/s)   [A
-POST=10 (2.0/s)  RECV=8 (2.0/s)  FAIL=0 (0.0/s)  FIN=8 (2.0/s)   [AProgress:  38%|███▊      | 9/24 [00:05<00:09,  1.53case/s]
-POST=11 (1.0/s)  RECV=9 (1.0/s)  FAIL=0 (0.0/s)  FIN=9 (1.0/s)   [A
-POST=11 (1.0/s)  RECV=9 (1.0/s)  FAIL=0 (0.0/s)  FIN=9 (1.0/s)   [AProgress:  46%|████▌     | 11/24 [00:06<00:07,  1.68case/s]
-POST=13 (2.0/s)  RECV=11 (2.0/s)  FAIL=0 (0.0/s)  FIN=11 (2.0/s)   [A
-POST=13 (2.0/s)  RECV=11 (2.0/s)  FAIL=0 (0.0/s)  FIN=11 (2.0/s)   [AProgress:  54%|█████▍    | 13/24 [00:07<00:06,  1.78case/s]
-POST=15 (2.0/s)  RECV=13 (2.0/s)  FAIL=0 (0.0/s)  FIN=13 (2.0/s)   [A
-POST=15 (2.0/s)  RECV=13 (2.0/s)  FAIL=0 (0.0/s)  FIN=13 (2.0/s)   [AProgress:  62%|██████▎   | 15/24 [00:08<00:04,  1.85case/s]
-POST=17 (2.0/s)  RECV=15 (2.0/s)  FAIL=0 (0.0/s)  FIN=15 (2.0/s)   [A
-POST=17 (2.0/s)  RECV=15 (2.0/s)  FAIL=0 (0.0/s)  FIN=15 (2.0/s)   [AProgress:  71%|███████   | 17/24 [00:09<00:03,  1.90case/s]
-POST=19 (2.0/s)  RECV=17 (2.0/s)  FAIL=0 (0.0/s)  FIN=17 (2.0/s)   [A
-POST=19 (2.0/s)  RECV=17 (2.0/s)  FAIL=0 (0.0/s)  FIN=17 (2.0/s)   [AProgress:  79%|███████▉  | 19/24 [00:10<00:02,  1.93case/s]
-POST=21 (2.0/s)  RECV=19 (2.0/s)  FAIL=0 (0.0/s)  FIN=19 (2.0/s)   [A
-POST=21 (2.0/s)  RECV=19 (2.0/s)  FAIL=0 (0.0/s)  FIN=19 (2.0/s)   [AProgress:  83%|████████▎ | 20/24 [00:11<00:02,  1.65case/s]
-POST=22 (1.0/s)  RECV=20 (1.0/s)  FAIL=0 (0.0/s)  FIN=20 (1.0/s)   [A
-POST=22 (1.0/s)  RECV=20 (1.0/s)  FAIL=0 (0.0/s)  FIN=20 (1.0/s)   [AProgress:  92%|█████████▏| 22/24 [00:12<00:01,  1.75case/s]
-POST=24 (2.0/s)  RECV=22 (2.0/s)  FAIL=0 (0.0/s)  FIN=22 (2.0/s)   [A
-POST=24 (2.0/s)  RECV=22 (2.0/s)  FAIL=0 (0.0/s)  FIN=22 (2.0/s)   [AProgress: 100%|██████████| 24/24 [00:13<00:00,  1.83case/s]
-POST=24 (0.0/s)  RECV=24 (2.0/s)  FAIL=0 (0.0/s)  FINISH=24 (2.0/s)   [A
-POST=24 (0.0/s)  RECV=24 (2.0/s)  FAIL=0 (0.0/s)  FINISH=24 (2.0/s)   [AProgress: 100%|██████████| 24/24 [00:14<00:00,  1.71case/s]
-POST=24 (0.0/s)  RECV=24 (2.0/s)  FAIL=0 (0.0/s)  FINISH=24 (2.0/s)   
-[2026-09-21 11:57:19,664] [ais_bench] [[32mINFO[0m] Api infer task time elapsed: 14.30s
-[2026-09-21 11:57:21,097] [ais_bench] [[32mINFO[0m] Inference tasks completed.
-[2026-09-21 11:57:21,098] [ais_bench] [[32mINFO[0m] Summarizing performance results...
-Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details: 100%|██████████| 24/24 [00:01<00:00, 23.91it/s]Calculating performance details: 100%|██████████| 24/24 [00:01<00:00, 21.74it/s]Calculating performance details: 100%|██████████| 24/24 [00:01<00:00, 21.74it/s]
-/usr/local/python3.11.10/lib/python3.11/site-packages/plotly/offline/offline.py:150: UserWarning: 
-Unrecognized config options supplied: ['showLink']
-  warnings.warn(
-[2026-09-21 11:57:23,445] [ais_bench] [[32mINFO[0m] Request timeline and concurrency chart saved to /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260921_115646/performances/vllm-api-stream-completions/gsm8k_plot.html
-[2026-09-21 11:57:23,446] [ais_bench] [[32mINFO[0m] The gsm8k_plot has been saved in /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260921_115646/performances/vllm-api-stream-completions/gsm8k_plot.html
-[2026-09-21 11:57:23,453] [ais_bench] [[32mINFO[0m] Converting performance results for stage...
-[2026-09-21 11:57:23,453] [ais_bench] [[32mINFO[0m] Performance results conversion completed!
-[2026-09-21 11:57:23,453] [ais_bench] [[32mINFO[0m] Starting metrics calculation...
-[2026-09-21 11:57:23,456] [ais_bench] [[32mINFO[0m] Starting common metrics calculation...
-[2026-09-21 11:57:23,456] [ais_bench] [[32mINFO[0m] Adding units to metrics...
-[2026-09-21 11:57:23,456] [ais_bench] [[32mINFO[0m] Performance data calculation completed!
-[2026-09-21 11:57:23,457] [ais_bench] [[32mINFO[0m] Performance Results of task [vllm-api-stream-completions/gsm8k]: 
-╒══════════════════════════╤═════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤═════╕
-│ Performance Parameters   │ Stage   │ Average        │ Min            │ Max            │ Median         │ P75            │ P90            │ P99            │  N  │
-╞══════════════════════════╪═════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪═════╡
-│ E2EL                     │ total   │ 1122.4 ms      │ 893.1 ms       │ 1774.7 ms      │ 1101.4 ms      │ 1185.1 ms      │ 1311.0 ms      │ 1677.7 ms      │ 24  │
-├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
-│ TTFT                     │ total   │ 1122.3 ms      │ 893.0 ms       │ 1774.7 ms      │ 1101.4 ms      │ 1185.1 ms      │ 1310.9 ms      │ 1677.7 ms      │ 24  │
-├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
-│ ITL                      │ total   │ 0.0 ms         │ 0.0 ms         │ 0.1 ms         │ 0.0 ms         │ 0.0 ms         │ 0.0 ms         │ 0.1 ms         │ 24  │
-├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
-│ InputTokens              │ total   │ 65431.4167     │ 40960.0        │ 81920.0        │ 67172.0        │ 74385.5        │ 81920.0        │ 81920.0        │ 24  │
-├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
-│ OutputTokens             │ total   │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 24  │
-├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
-│ OutputTokenThroughput    │ total   │ 0.9113 token/s │ 0.5635 token/s │ 1.1198 token/s │ 0.9079 token/s │ 0.9881 token/s │ 1.0982 token/s │ 1.1167 token/s │ 24  │
-╘══════════════════════════╧═════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧═════╛
-╒══════════════════════════╤═════════╤═════════════════════╕
-│ Common Metric            │ Stage   │ Value               │
-╞══════════════════════════╪═════════╪═════════════════════╡
-│ Benchmark Duration       │ total   │ 13742.1825 ms       │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Total Requests           │ total   │ 24                  │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Failed Requests          │ total   │ 0                   │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Success Requests         │ total   │ 24                  │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Concurrency              │ total   │ 1.9602              │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Max Concurrency          │ total   │ 2                   │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Request Throughput       │ total   │ 1.7464 req/s        │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Total Input Tokens       │ total   │ 1570354             │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Prefill Token Throughput │ total   │ 58299.1796 token/s  │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Total Generated Tokens   │ total   │ 24                  │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Input Token Throughput   │ total   │ 114272.5324 token/s │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Output Token Throughput  │ total   │ 1.7464 token/s      │
-├──────────────────────────┼─────────┼─────────────────────┤
-│ Total Token Throughput   │ total   │ 114274.2789 token/s │
-╘══════════════════════════╧═════════╧═════════════════════╛[2026-09-21 11:57:23,463] [ais_bench] [[32mINFO[0m] Performance Result files located in /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260921_115646/performances/vllm-api-stream-completions.
-
-2026-09-21 11:57:25,340 - INFO - [完成] 全量数据集测试完成，结果保存在aisbench_result.csv
-2026-09-21 11:57:25,341 - INFO - {'current_time': '2026-09-21 11:57:25', 'input_len': 65431.4167, 'output_len': 1.0, 'total_req': 24.0, 'max_cc': '2', 'cc': 1.9602, 'rr': '0', 'repeat_rate': 0.0, 'TTFT avg': 1122.3, 'TTFT P90': 1310.9, 'TPOT avg': 99999, 'TPOT SLO_P90': 99999, 'E2E_time': 13.742182500000002, 'output_throughput': 1.7464, 'single_output_throughput': 1.7464, 'E2E_throughput': 114274.2789, 'single_E2E_throughput': 114274.2789, 'qps': 1.7464, 'qpm': 104.78399999999999, 'input_token_throughput': 114272.5324, 'prefill_token_throughput': 58299.1796, 'E2EL avg': 1122.4, 'E2EL P90': 1311.0}
-2026-09-21 11:57:25,342 - INFO - aisbench.log copied to: /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260921_115646
-2026-09-21 11:57:25,342 - INFO - aisbench.log saved at current directory: /home/w00985415/vaws_wd/dsv4_flash/aisbench_auto_tools_prefix
-2026-09-21 11:57:25,349 - INFO - 文件已存在，读取现有数据
-2026-09-21 11:57:25,355 - INFO - 成功追加新行
-from ais_bench.benchmark.models import VLLMCustomAPIStream
-
-models = [
-    dict(
-        attr="service",
-        type=VLLMCustomAPIStream,
-        abbr='vllm-api-stream-completions',
-        path="/mnt/weight/DeepSeek-V4-Flash-w8a8-mtp",
-        model="dsv4",
-        api_key="",
-        request_rate=0,
-        retry=2,
-        host_ip="80.5.9.139",
-        host_port=18080,
-        url="",
-        max_out_len=1,
-        batch_size=2,
-        generation_kwargs=dict(
-            temperature=0,
-            ignore_eos=True,
-            add_special_tokens=False
-        )
-    )
-]

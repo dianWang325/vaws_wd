@@ -1,2 +1,0 @@
-dataset,version,metric,mode,vllm-api-stream-completions
-gsm8k,36f20d,accuracy,gen,10.50

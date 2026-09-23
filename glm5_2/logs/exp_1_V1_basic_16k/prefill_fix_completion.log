@@ -1,53 +1,0 @@
-2026-09-20T00:01:21+08:00 generating 24 prompts of 65536 tokens with toolbox
-2026-09-20 00:01:21,367 - INFO - 加载tokenizer: /mnt/weight/GLM-5.2-W4A8C8-0713-MTP
-Generating dataset:   0%|          | 0/24 [00:00<?, ?row/s]Generating dataset:   4%|▍         | 1/24 [00:00<00:04,  4.72row/s]Generating dataset:   8%|▊         | 2/24 [00:00<00:06,  3.51row/s]Generating dataset:  12%|█▎        | 3/24 [00:00<00:04,  4.37row/s]Generating dataset:  17%|█▋        | 4/24 [00:00<00:04,  4.89row/s]Generating dataset:  21%|██        | 5/24 [00:01<00:03,  5.22row/s]Generating dataset:  25%|██▌       | 6/24 [00:01<00:03,  5.40row/s]Generating dataset:  29%|██▉       | 7/24 [00:01<00:03,  5.63row/s]Generating dataset:  33%|███▎      | 8/24 [00:01<00:02,  5.80row/s]Generating dataset:  38%|███▊      | 9/24 [00:01<00:02,  5.87row/s]Generating dataset:  42%|████▏     | 10/24 [00:01<00:02,  5.92row/s]Generating dataset:  46%|████▌     | 11/24 [00:02<00:02,  5.94row/s]Generating dataset:  50%|█████     | 12/24 [00:02<00:02,  5.97row/s]Generating dataset:  54%|█████▍    | 13/24 [00:02<00:01,  6.04row/s]Generating dataset:  58%|█████▊    | 14/24 [00:02<00:01,  6.13row/s]Generating dataset:  62%|██████▎   | 15/24 [00:02<00:01,  6.11row/s]Generating dataset:  67%|██████▋   | 16/24 [00:02<00:01,  6.12row/s]Generating dataset:  71%|███████   | 17/24 [00:03<00:01,  6.28row/s]Generating dataset:  75%|███████▌  | 18/24 [00:03<00:00,  6.50row/s]Generating dataset:  79%|███████▉  | 19/24 [00:03<00:00,  6.37row/s]Generating dataset:  83%|████████▎ | 20/24 [00:03<00:00,  6.53row/s]Generating dataset:  88%|████████▊ | 21/24 [00:03<00:00,  6.33row/s]Generating dataset:  92%|█████████▏| 22/24 [00:03<00:00,  6.61row/s]Generating dataset:  96%|█████████▌| 23/24 [00:03<00:00,  6.67row/s]Generating dataset: 100%|██████████| 24/24 [00:04<00:00,  6.60row/s]Generating dataset: 100%|██████████| 24/24 [00:04<00:00,  5.91row/s]
-2026-09-20T00:01:27+08:00 generated /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K-in65536-num24-GLM-5.2-W4A8C8-0713-MTP.jsonl
-2026-09-20T00:01:27+08:00 sending 1/24 bytes=230271
-{"time": "2026-09-20T00:01:42+08:00", "index": 1, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.02, "detail": ""}
-2026-09-20T00:01:42+08:00 sending 2/24 bytes=326885
-{"time": "2026-09-20T00:01:57+08:00", "index": 2, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.05, "detail": ""}
-2026-09-20T00:01:57+08:00 sending 3/24 bytes=259903
-{"time": "2026-09-20T00:02:12+08:00", "index": 3, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.9, "detail": ""}
-2026-09-20T00:02:12+08:00 sending 4/24 bytes=266306
-{"time": "2026-09-20T00:02:27+08:00", "index": 4, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.07, "detail": ""}
-2026-09-20T00:02:27+08:00 sending 5/24 bytes=295529
-{"time": "2026-09-20T00:02:42+08:00", "index": 5, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.03, "detail": ""}
-2026-09-20T00:02:42+08:00 sending 6/24 bytes=270832
-{"time": "2026-09-20T00:02:57+08:00", "index": 6, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.04, "detail": ""}
-2026-09-20T00:02:57+08:00 sending 7/24 bytes=255158
-{"time": "2026-09-20T00:03:12+08:00", "index": 7, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.95, "detail": ""}
-2026-09-20T00:03:12+08:00 sending 8/24 bytes=262269
-{"time": "2026-09-20T00:03:27+08:00", "index": 8, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.95, "detail": ""}
-2026-09-20T00:03:27+08:00 sending 9/24 bytes=268422
-{"time": "2026-09-20T00:03:42+08:00", "index": 9, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.93, "detail": ""}
-2026-09-20T00:03:42+08:00 sending 10/24 bytes=286107
-{"time": "2026-09-20T00:03:57+08:00", "index": 10, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.04, "detail": ""}
-2026-09-20T00:03:57+08:00 sending 11/24 bytes=300743
-{"time": "2026-09-20T00:04:12+08:00", "index": 11, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.98, "detail": ""}
-2026-09-20T00:04:12+08:00 sending 12/24 bytes=299592
-{"time": "2026-09-20T00:04:27+08:00", "index": 12, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.99, "detail": ""}
-2026-09-20T00:04:27+08:00 sending 13/24 bytes=278260
-{"time": "2026-09-20T00:04:42+08:00", "index": 13, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.92, "detail": ""}
-2026-09-20T00:04:42+08:00 sending 14/24 bytes=279930
-{"time": "2026-09-20T00:04:57+08:00", "index": 14, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.01, "detail": ""}
-2026-09-20T00:04:57+08:00 sending 15/24 bytes=271449
-{"time": "2026-09-20T00:05:12+08:00", "index": 15, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.04, "detail": ""}
-2026-09-20T00:05:12+08:00 sending 16/24 bytes=263872
-{"time": "2026-09-20T00:05:27+08:00", "index": 16, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.96, "detail": ""}
-2026-09-20T00:05:27+08:00 sending 17/24 bytes=216602
-{"time": "2026-09-20T00:05:42+08:00", "index": 17, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.93, "detail": ""}
-2026-09-20T00:05:42+08:00 sending 18/24 bytes=204195
-{"time": "2026-09-20T00:05:57+08:00", "index": 18, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.02, "detail": ""}
-2026-09-20T00:05:57+08:00 sending 19/24 bytes=277001
-{"time": "2026-09-20T00:06:12+08:00", "index": 19, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.04, "detail": ""}
-2026-09-20T00:06:12+08:00 sending 20/24 bytes=212468
-{"time": "2026-09-20T00:06:27+08:00", "index": 20, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.04, "detail": ""}
-2026-09-20T00:06:27+08:00 sending 21/24 bytes=312201
-{"time": "2026-09-20T00:06:42+08:00", "index": 21, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.0, "detail": ""}
-2026-09-20T00:06:42+08:00 sending 22/24 bytes=210113
-{"time": "2026-09-20T00:06:57+08:00", "index": 22, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.98, "detail": ""}
-2026-09-20T00:06:57+08:00 sending 23/24 bytes=212560
-{"time": "2026-09-20T00:07:12+08:00", "index": 23, "http_status": 200, "sse_done": true, "elapsed_seconds": 14.97, "detail": ""}
-2026-09-20T00:07:12+08:00 sending 24/24 bytes=243546
-{"time": "2026-09-20T00:07:27+08:00", "index": 24, "http_status": 200, "sse_done": true, "elapsed_seconds": 15.09, "detail": ""}
-2026-09-20T00:07:27+08:00 completed all 24 prefill_fix requests; dataset=/home/w00985415/vaws_wd/glm5_2/datasets/GSM8K-in65536-num24-GLM-5.2-W4A8C8-0713-MTP.jsonl; results=/home/w00985415/vaws_wd/glm5_2/logs/prefill_fix_completion_results.jsonl

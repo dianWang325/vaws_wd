@@ -1,3 +1,0 @@
-model_name,current_time,input_len,output_len,total_req,max_cc,cc,rr,repeat_rate,TTFT avg,TTFT P90,TPOT avg,TPOT SLO_P90,E2E_time,output_throughput,single_output_throughput,E2E_throughput,single_E2E_throughput,qps,qpm,input_token_throughput,prefill_token_throughput,E2EL avg,E2EL P90
-GLM-5.2-W4A8C8-0713-MTP,2026-09-20 01:27:48,1023999.0,1.0,5.0,1,1.0,0,0.0,502076.7,503188.7,99999,99999,2510.4518944,0.002,0.002,2039.4735,2039.4735,0.002,0.12,2039.4715,9999,502076.8,503188.7
-GLM-5.2-W4A8C8-0713-MTP,2026-09-20 01:36:00,65536.0,1.0,24.0,1,0.9999,0,0.0,17700.0,17746.1,99999,99999,424.82621850000004,0.0565,0.0565,3702.4269,3702.4269,0.0565,3.39,3702.3704,9999,17700.0,17746.2

@@ -1,10 +1,10 @@
 # PD 分离部署 - Decode 节点（TCP 跨机，MooncakeHybridConnector）
-# 目标机：80.48.33.120（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.127（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 与 decode_node.sh 的差异：网卡/IP 环境变量填实 + 新增 socket/超时环境变量
 #   + 新增 DP 寻址参数（--data-parallel-address/--data-parallel-rpc-port）+ 新增 --kv-transfer-config
 # 并行配置未改动：DP2 x TP8（内置 DP，与 vllm-ascend 官方 PD 部署指南一致）
-nic_name="enp48s3u1u2"  # 80.48.33.120 实测业务网卡
-local_ip="80.48.33.120"
+nic_name="enp194s0f0"  # 80.5.9.127 实测业务网卡
+local_ip="80.5.9.127"
 export GLOO_SOCKET_IFNAME=$nic_name
 export TP_SOCKET_IFNAME=$nic_name
 export HCCL_SOCKET_IFNAME=$nic_name
@@ -25,7 +25,7 @@ export HCCL_OP_EXPANSION_MODE="AIV"
 export VLLM_PREFIX_CACHE_RETENTION_INTERVAL=4096
 export VLLM_USE_V2_MODEL_RUNNER=1
 
-vllm serve /mnt/share/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
+vllm serve /mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     --host 0.0.0.0 \
     --max-model-len 204800 \
     --max-num-batched-tokens 20480 \
@@ -34,7 +34,7 @@ vllm serve /mnt/share/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     --api-server-count 1 \
     --max-num-seqs 64 \
     --data-parallel-size 2 \
-    --data-parallel-address 80.48.33.120 \
+    --data-parallel-address 80.5.9.127 \
     --data-parallel-rpc-port 12321 \
     --tensor-parallel-size 8 \
     --enable-expert-parallel \

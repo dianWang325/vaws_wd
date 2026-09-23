@@ -16,15 +16,15 @@ case "$stage" in
   prefill_fix)
     input_len=65536
     output_len=1
-    data_num=6
+    data_num=24
     concurrency="${CONCURRENCY:-2}"
     ;;
   prefill_variable|fix|variable)
     input_len=65536
-    data_num=6
-    concurrency="${CONCURRENCY:-1}"
+    data_num=24
+    concurrency="${CONCURRENCY:-2}"
     case "$stage" in
-      prefill_variable) output_len=1 ;;
+      prefill_variable) output_len=2 ;;
       fix|variable) output_len=2560 ;;
     esac
     ;;

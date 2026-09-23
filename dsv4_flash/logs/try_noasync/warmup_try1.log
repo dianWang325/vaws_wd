@@ -1,0 +1,489 @@
+[2026-09-23 18:50:47,219] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
+[2026-09-23 18:50:47,228] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
+[2026-09-23 18:50:47,230] [ais_bench] [[32mINFO[0m] Loading default_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/perf/default_perf.py
+[2026-09-23 18:50:47,231] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_185039
+[2026-09-23 18:50:47,242] [ais_bench] [[32mINFO[0m] Starting inference tasks...
+[2026-09-23 18:50:47,242] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[2026-09-23 18:50:47,243] [ais_bench] [[32mINFO[0m] Merging datasets with the same model and inferencer...
+[2026-09-23 18:50:47,311] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 775051, Refresh interval: 0.5, Run in background: True
+[2026-09-23 18:50:56,795] [ais_bench] [[32mINFO[0m] Debug mode, print progress directly
+[2026-09-23 18:50:56,797] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-completions/gsm8k]
+[2026-09-23 18:50:56,847] [ais_bench] [[32mINFO[0m] Zero Retriever initialized, returning empty shot case for all queries
+[2026-09-23 18:50:56,855] [ais_bench] [[32mINFO[0m] Apply ice template finished
+[2026-09-23 18:50:56,856] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIStream is deprecated, please use VLLMCustomAPI with stream=True instead.
+[2026-09-23 18:50:56,857] [ais_bench] [[32mINFO[0m] Warmup size is 0, skip...
+[2026-09-23 18:50:56,858] [ais_bench] [[32mINFO[0m] Dataset needed memory size: 3.87516308 MB
+[2026-09-23 18:50:56,858] [ais_bench] [[32mINFO[0m] Memory usage check passed: 13.55% < 80% (Available: 1728.56 GB)
+[2026-09-23 18:50:56,860] [ais_bench] [[33mWARNING[0m] The request rate is below 0.1, resulting in an excessively long interval between two consecutive requests.
+[2026-09-23 18:50:56,860] [ais_bench] [[32mINFO[0m] Traffic request rate: 0 RPS with burstiness 1.0.
+[2026-09-23 18:50:56,860] [ais_bench] [[32mINFO[0m] Request rate (0.0) or ramp end rps (None) < 0.001, sending all requests simultaneously
+[2026-09-23 18:50:56,861] [ais_bench] [[32mINFO[0m] Debug mode, run with concurrency: 1
+[2026-09-23 18:50:56,961] [ais_bench] [[32mINFO[0m] All subprocesses have finished deserializing the first batch of data
+[2026-09-23 18:50:57,061] [ais_bench] [[32mINFO[0m] Starting progress bar Total data num: 5 Finished data num: 0 Left data num: 5
+Progress:   0%|          | 0/5 [00:00<?, ?case/s]
+[A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (1.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (1.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [AProgress:  20%|██        | 1/5 [00:40<02:43, 40.82s/case]
+POST=2 (1.0/s)  RECV=1 (1.0/s)  FAIL=0 (0.0/s)  FIN=1 (1.0/s)   [A
+POST=2 (1.0/s)  RECV=1 (1.0/s)  FAIL=0 (0.0/s)  FIN=1 (1.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [AProgress:  40%|████      | 2/5 [01:18<01:57, 39.17s/case]
+POST=3 (1.0/s)  RECV=2 (1.0/s)  FAIL=0 (0.0/s)  FIN=2 (1.0/s)   [A
+POST=3 (1.0/s)  RECV=2 (1.0/s)  FAIL=0 (0.0/s)  FIN=2 (1.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [AProgress:  60%|██████    | 3/5 [01:55<01:16, 38.19s/case]
+POST=4 (1.0/s)  RECV=3 (1.0/s)  FAIL=0 (0.0/s)  FIN=3 (1.0/s)   [A
+POST=4 (1.0/s)  RECV=3 (1.0/s)  FAIL=0 (0.0/s)  FIN=3 (1.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [A
+POST=4 (0.0/s)  RECV=3 (0.0/s)  FAIL=0 (0.0/s)  FIN=3 (0.0/s)   [AProgress:  80%|████████  | 4/5 [02:32<00:37, 37.73s/case]
+POST=5 (1.0/s)  RECV=4 (1.0/s)  FAIL=0 (0.0/s)  FIN=4 (1.0/s)   [A
+POST=5 (1.0/s)  RECV=4 (1.0/s)  FAIL=0 (0.0/s)  FIN=4 (1.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [AProgress: 100%|██████████| 5/5 [03:09<00:00, 37.47s/case]
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   [A
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   [AProgress: 100%|██████████| 5/5 [03:10<00:00, 38.02s/case]
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   
+[2026-09-23 18:54:07,167] [ais_bench] [[32mINFO[0m] Api infer task time elapsed: 190.37s
+[2026-09-23 18:54:08,605] [ais_bench] [[32mINFO[0m] Inference tasks completed.
+[2026-09-23 18:54:08,606] [ais_bench] [[32mINFO[0m] Summarizing performance results...
+Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details: 100%|██████████| 5/5 [00:00<00:00,  5.54it/s]Calculating performance details: 100%|██████████| 5/5 [00:01<00:00,  4.98it/s]Calculating performance details: 100%|██████████| 5/5 [00:01<00:00,  4.98it/s]
+[2026-09-23 18:54:10,760] [ais_bench] [[32mINFO[0m] Request timeline and concurrency chart saved to /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_185039/performances/vllm-api-stream-completions/gsm8k_plot.html
+[2026-09-23 18:54:10,760] [ais_bench] [[32mINFO[0m] The gsm8k_plot has been saved in /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_185039/performances/vllm-api-stream-completions/gsm8k_plot.html
+[2026-09-23 18:54:10,762] [ais_bench] [[32mINFO[0m] Converting performance results for stage...
+[2026-09-23 18:54:10,763] [ais_bench] [[32mINFO[0m] Performance results conversion completed!
+[2026-09-23 18:54:10,763] [ais_bench] [[32mINFO[0m] Starting metrics calculation...
+[2026-09-23 18:54:10,766] [ais_bench] [[32mINFO[0m] Starting common metrics calculation...
+[2026-09-23 18:54:10,766] [ais_bench] [[32mINFO[0m] Adding units to metrics...
+[2026-09-23 18:54:10,766] [ais_bench] [[32mINFO[0m] Performance data calculation completed!
+[2026-09-23 18:54:10,767] [ais_bench] [[32mINFO[0m] Performance Results of task [vllm-api-stream-completions/gsm8k]: 
+╒══════════════════════════╤═════════╤════════════════╤═══════════════╤═══════════════╤════════════════╤═══════════════╤═══════════════╤═══════════════╤═════╕
+│ Performance Parameters   │ Stage   │ Average        │ Min           │ Max           │ Median         │ P75           │ P90           │ P99           │  N  │
+╞══════════════════════════╪═════════╪════════════════╪═══════════════╪═══════════════╪════════════════╪═══════════════╪═══════════════╪═══════════════╪═════╡
+│ E2EL                     │ total   │ 37894.2 ms     │ 37001.9 ms    │ 40069.9 ms    │ 37274.4 ms     │ 38108.8 ms    │ 39285.5 ms    │ 39991.4 ms    │  5  │
+├──────────────────────────┼─────────┼────────────────┼───────────────┼───────────────┼────────────────┼───────────────┼───────────────┼───────────────┼─────┤
+│ TTFT                     │ total   │ 37894.2 ms     │ 37001.8 ms    │ 40069.8 ms    │ 37274.3 ms     │ 38108.8 ms    │ 39285.4 ms    │ 39991.4 ms    │  5  │
+├──────────────────────────┼─────────┼────────────────┼───────────────┼───────────────┼────────────────┼───────────────┼───────────────┼───────────────┼─────┤
+│ ITL                      │ total   │ 0.1 ms         │ 0.1 ms        │ 0.1 ms        │ 0.1 ms         │ 0.1 ms        │ 0.1 ms        │ 0.1 ms        │  5  │
+├──────────────────────────┼─────────┼────────────────┼───────────────┼───────────────┼────────────────┼───────────────┼───────────────┼───────────────┼─────┤
+│ InputTokens              │ total   │ 204799.0       │ 204799.0      │ 204799.0      │ 204799.0       │ 204799.0      │ 204799.0      │ 204799.0      │  5  │
+├──────────────────────────┼─────────┼────────────────┼───────────────┼───────────────┼────────────────┼───────────────┼───────────────┼───────────────┼─────┤
+│ OutputTokens             │ total   │ 1.0            │ 1.0           │ 1.0           │ 1.0            │ 1.0           │ 1.0           │ 1.0           │  5  │
+├──────────────────────────┼─────────┼────────────────┼───────────────┼───────────────┼────────────────┼───────────────┼───────────────┼───────────────┼─────┤
+│ OutputTokenThroughput    │ total   │ 0.0264 token/s │ 0.025 token/s │ 0.027 token/s │ 0.0268 token/s │ 0.027 token/s │ 0.027 token/s │ 0.027 token/s │  5  │
+╘══════════════════════════╧═════════╧════════════════╧═══════════════╧═══════════════╧════════════════╧═══════════════╧═══════════════╧═══════════════╧═════╛
+╒══════════════════════════╤═════════╤═══════════════════╕
+│ Common Metric            │ Stage   │ Value             │
+╞══════════════════════════╪═════════╪═══════════════════╡
+│ Benchmark Duration       │ total   │ 189484.5105 ms    │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Requests           │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Failed Requests          │ total   │ 0                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Success Requests         │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Concurrency              │ total   │ 0.9999            │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Max Concurrency          │ total   │ 1                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Request Throughput       │ total   │ 0.0264 req/s      │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Input Tokens       │ total   │ 1023995           │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Prefill Token Throughput │ total   │ 5404.4974 token/s │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Generated Tokens   │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Input Token Throughput   │ total   │ 5404.1093 token/s │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Output Token Throughput  │ total   │ 0.0264 token/s    │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Token Throughput   │ total   │ 5404.1357 token/s │
+╘══════════════════════════╧═════════╧═══════════════════╛[2026-09-23 18:54:10,771] [ais_bench] [[32mINFO[0m] Performance Result files located in /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_185039/performances/vllm-api-stream-completions.
+
+from ais_bench.benchmark.models import VLLMCustomAPIStream
+
+models = [
+    dict(
+        attr="service",
+        type=VLLMCustomAPIStream,
+        abbr='vllm-api-stream-completions',
+        path="/mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci",
+        model="dsv4",
+        api_key="",
+        request_rate=0,
+        retry=2,
+        host_ip="80.5.9.129",
+        host_port=9000,
+        url="",
+        max_out_len=1,
+        batch_size=1,
+        generation_kwargs=dict(
+            temperature=0,
+            ignore_eos=True,
+            add_special_tokens=False
+        )
+    )
+]

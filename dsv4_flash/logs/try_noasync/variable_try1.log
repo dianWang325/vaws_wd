@@ -1,0 +1,88 @@
+[2026-09-23 19:18:08,716] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
+[2026-09-23 19:18:08,725] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
+[2026-09-23 19:18:08,727] [ais_bench] [[32mINFO[0m] Loading default_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/perf/default_perf.py
+[2026-09-23 19:18:08,728] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_191800
+[2026-09-23 19:18:08,740] [ais_bench] [[32mINFO[0m] Starting inference tasks...
+[2026-09-23 19:18:08,740] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[2026-09-23 19:18:08,741] [ais_bench] [[32mINFO[0m] Merging datasets with the same model and inferencer...
+[2026-09-23 19:18:08,782] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 780705, Refresh interval: 0.5, Run in background: True
+[2026-09-23 19:18:19,416] [ais_bench] [[32mINFO[0m] Debug mode, print progress directly
+[2026-09-23 19:18:19,417] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-completions/gsm8k]
+[2026-09-23 19:18:19,457] [ais_bench] [[32mINFO[0m] Zero Retriever initialized, returning empty shot case for all queries
+[2026-09-23 19:18:19,470] [ais_bench] [[32mINFO[0m] Apply ice template finished
+[2026-09-23 19:18:19,471] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIStream is deprecated, please use VLLMCustomAPI with stream=True instead.
+[2026-09-23 19:18:19,472] [ais_bench] [[32mINFO[0m] Warmup size is 0, skip...
+[2026-09-23 19:18:19,474] [ais_bench] [[32mINFO[0m] Dataset needed memory size: 5.99845695 MB
+[2026-09-23 19:18:19,474] [ais_bench] [[32mINFO[0m] Memory usage check passed: 6.71% < 80% (Available: 1866.34 GB)
+[2026-09-23 19:18:19,477] [ais_bench] [[33mWARNING[0m] The request rate is below 0.1, resulting in an excessively long interval between two consecutive requests.
+[2026-09-23 19:18:19,478] [ais_bench] [[32mINFO[0m] Traffic request rate: 0 RPS with burstiness 1.0.
+[2026-09-23 19:18:19,478] [ais_bench] [[32mINFO[0m] Request rate (0.0) or ramp end rps (None) < 0.001, sending all requests simultaneously
+[2026-09-23 19:18:19,479] [ais_bench] [[32mINFO[0m] Debug mode, run with concurrency: 2
+[2026-09-23 19:18:19,579] [ais_bench] [[32mINFO[0m] All subprocesses have finished deserializing the first batch of data
+[2026-09-23 19:18:19,679] [ais_bench] [[32mINFO[0m] Starting progress bar Total data num: 24 Finished data num: 0 Left data num: 24
+Progress:   0%|          | 0/24 [00:00<?, ?case/s]
+[A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A[2026-09-23 19:18:20,642] [ais_bench] [[33mWARNING[0m] Not all items were successful, keeping JSON file for debugging: /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_191800/performances/vllm-api-stream-completions/tmp/tmp_2bf5104a.jsonl
+Progress: 100%|██████████| 24/24 [00:01<00:00, 23.85case/s]
+POST=24 (23.7/s)  RECV=0 (0.0/s)  FAIL=24 (23.7/s)  FIN=24 (23.7/s)   [A
+POST=24 (23.7/s)  RECV=0 (0.0/s)  FAIL=24 (23.7/s)  FIN=24 (23.7/s)   [A
+POST=24 (0.0/s)  RECV=0 (0.0/s)  FAIL=24 (0.0/s)  FINISH=24 (0.0/s)   [A
+POST=24 (0.0/s)  RECV=0 (0.0/s)  FAIL=24 (0.0/s)  FINISH=24 (0.0/s)   [AProgress: 100%|██████████| 24/24 [00:01<00:00, 19.79case/s]
+POST=24 (0.0/s)  RECV=0 (0.0/s)  FAIL=24 (0.0/s)  FINISH=24 (0.0/s)   
+[2026-09-23 19:18:20,904] [ais_bench] [[32mINFO[0m] Task finished, failed reasons summary: 
+Task finished, failed reasons summary:
++-----------------------+-------+
+| Failed Reason         | Count |
++-----------------------+-------+
+| Internal Server Error |    24 |
++-----------------------+-------+ 
+
+[2026-09-23 19:18:20,904] [ais_bench] [[32mINFO[0m] Read /home/w00985415/vaws_wd/dsv4_flash/outputs/default/20260923_191800/performances/vllm-api-stream-completions*_failed.jsonl for more details
+[2026-09-23 19:18:20,904] [ais_bench] [[32mINFO[0m] Api infer task time elapsed: 1.49s
+[2026-09-23 19:18:22,334] [ais_bench] [[32mINFO[0m] Inference tasks completed.
+[2026-09-23 19:18:22,335] [ais_bench] [[32mINFO[0m] Summarizing performance results...
+Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/24 [00:00<?, ?it/s]Calculating performance details: 100%|██████████| 24/24 [00:00<00:00, 26.60it/s]Calculating performance details: 100%|██████████| 24/24 [00:00<00:00, 26.59it/s]
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/bin/ais_bench", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/cli/main.py", line 6, in main
+    task_manager.run()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/cli/task_manager.py", line 39, in run
+    workflow_executor.execute()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/cli/workers.py", line 492, in execute
+    worker.do_work(cfg)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/cli/workers.py", line 469, in do_work
+    summarizer.summarize()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/summarizers/default_perf.py", line 429, in summarize
+    details_perf_datas = self._load_details_perf_data(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/summarizers/default_perf.py", line 303, in _load_details_perf_data
+    raise AISBenchDataContentError(
+ais_bench.benchmark.utils.logging.exceptions.AISBenchDataContentError: [[1m[41m[33mSUMM-MTRC-001[0m][1m[31mdifferent structure of perf data[0m. The length of details perf datas is not the same: {}, each perf data should have same data structure | Visit [4m[35mhttps://ais-bench-benchmark.readthedocs.io/zh-cn/latest/faqs/error_codes.html#summ-mtrc-001[0m for further help.
+[ERROR] 2026-09-23-19:18:24 (PID:780432, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+from ais_bench.benchmark.models import VLLMCustomAPIStream
+
+models = [
+    dict(
+        attr="service",
+        type=VLLMCustomAPIStream,
+        abbr='vllm-api-stream-completions',
+        path="/mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci",
+        model="dsv4",
+        api_key="",
+        request_rate=0,
+        retry=2,
+        host_ip="80.5.9.129",
+        host_port=9000,
+        url="",
+        max_out_len=2560,
+        batch_size=2,
+        generation_kwargs=dict(
+            temperature=0,
+            ignore_eos=True,
+            add_special_tokens=False
+        )
+    )
+]
