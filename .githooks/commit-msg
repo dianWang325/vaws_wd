@@ -1,0 +1,7 @@
+#!/bin/sh
+# Ensure every commit carries a Signed-off-by trailer matching its author.
+msg_file="$1"
+author="$(git var GIT_AUTHOR_IDENT | sed 's/>[^>]*$/>/')"
+sob="Signed-off-by: $author"
+grep -qiF "$sob" "$msg_file" && exit 0
+git interpret-trailers --in-place --trailer "$sob" "$msg_file"

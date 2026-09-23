@@ -1,0 +1,29 @@
+#!/bin/sh
+# Reject pushing commits that miss a Signed-off-by trailer or use an
+# unexpected author identity. Override the expected author per clone with:
+#   git config hooks.requiredAuthor "Name <email>"
+required_author="$(git config hooks.requiredAuthor)"
+[ -z "$required_author" ] && required_author="dianWang325 <93850926+dianWang325@users.noreply.github.com>"
+
+zero=0000000000000000000000000000000000000000
+status=0
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then
+    commits="$(git rev-list "$local_sha" --not --remotes=origin)"
+  else
+    commits="$(git rev-list "$remote_sha..$local_sha")"
+  fi
+  for c in $commits; do
+    ident="$(git log --format='%an <%ae>' -1 "$c")"
+    if [ "$ident" != "$required_author" ]; then
+      echo "pre-push: $c has unexpected author '$ident' (want '$required_author')" >&2
+      status=1
+    fi
+    if ! git log --format=%B -1 "$c" | grep -qi '^Signed-off-by: '; then
+      echo "pre-push: $c is missing a Signed-off-by trailer" >&2
+      status=1
+    fi
+  done
+done
+exit $status
