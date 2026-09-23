@@ -22,7 +22,7 @@ case "$stage" in
   prefill_variable|fix|variable)
     input_len=65536
     data_num=24
-    concurrency="${CONCURRENCY:-1}"
+    concurrency="${CONCURRENCY:-2}"
     case "$stage" in
       prefill_variable) output_len=1 ;;
       fix|variable) output_len=2560 ;;
