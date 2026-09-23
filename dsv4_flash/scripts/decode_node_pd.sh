@@ -40,6 +40,7 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     --enable-expert-parallel \
     --enable-chunked-prefill \
     --tokenizer-mode deepseek_v4 \
+    --async-scheduling \
     --model-loader-extra-config='{"enable_multithread_load": true, "num_threads": 128}' \
     --quantization ascend \
     --port 18080 \

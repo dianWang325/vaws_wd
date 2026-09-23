@@ -36,7 +36,7 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci \
     --tensor-parallel-size 8 \
     --enable-expert-parallel \
     --enable-chunked-prefill \
-    --no-async-scheduling \
+    --async-scheduling \
     --enforce-eager \
     --tokenizer-mode deepseek_v4 \
     --model-loader-extra-config='{"enable_multithread_load": true, "num_threads": 128}' \

@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+dsv4_flash/kernel_meta/
+dsv4_flash/outputs/
+dsv4_flash/logs/
