@@ -35,3 +35,13 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
         },
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}'
+
+    # "scheduler_config": {
+    #     "profiling_chunk_config": {"enabled": true},
+    #     "short_request_first_config": {
+    #         "enabled": true,
+    #         "threshold": 66560,
+    #         "long_max_wait_ms": 2000
+    #         }
+    #     },
+    #     --speculative-config '{"method": "dspark", "num_speculative_tokens": 5, "enforce_eager": true}' \
