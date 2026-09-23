@@ -24,7 +24,7 @@ case "$stage" in
     data_num=24
     concurrency="${CONCURRENCY:-2}"
     case "$stage" in
-      prefill_variable) output_len=2 ;;
+      prefill_variable) output_len=1 ;;
       fix|variable) output_len=2560 ;;
     esac
     ;;
