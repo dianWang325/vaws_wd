@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PD 分离部署 - Prefill 节点（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.17.110（容器内运行，/home 已挂载进容器）
+# 目标机：80.5.9.126（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 并行方式与 DSV4 PD 一致：PP2 x TP8，单机 16 卡，kv_producer
 # 与 glm52_dsacp_V2.sh(head) 的差异：去掉跨机 --nnodes/--node-rank/--master-*（PP 收敛到单机内）
 #   + 新增 ASCEND_CONNECT_TIMEOUT/ASCEND_TRANSFER_TIMEOUT + 新增 --kv-transfer-config
@@ -8,8 +8,8 @@
 #   + DSA-CP 暂无法与 PD 组合（待后续适配），相关参数已关闭（见 vllm serve 上方说明）
 set -euo pipefail
 
-nic_name="enp48s3u1u1"  # 80.5.17.110 实测业务网卡
-local_ip="80.5.17.110"
+nic_name="enp194s0f0"  # 80.5.9.126 实测业务网卡
+local_ip="80.5.9.126"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
@@ -38,6 +38,7 @@ export HCCL_NPU_SOCKET_PORT_RANGE=auto
 export HCCL_CONNECT_TIMEOUT=7200
 export HCCL_EXEC_TIMEOUT=204
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libjemalloc.so.2:${LD_PRELOAD:-}
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
 export TASK_QUEUE_ENABLE=1
 export VLLM_ENGINE_READY_TIMEOUT_S=100000
@@ -59,6 +60,8 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --no-enable-prefix-caching \
   --pipeline-parallel-size 2 \
   --tensor-parallel-size 8 \
+  --enable-chunked-prefill \
+  --async-scheduling \
   --distributed-executor-backend mp \
   --enforce-eager \
   --additional-config '{
@@ -67,7 +70,14 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
       "enable_npugraph_ex": true,
       "enable_static_kernel": false
     },
-    "scheduler_config": {"profiling_chunk_config": {"enabled": true}},
+    "scheduler_config": {
+      "profiling_chunk_config": {"enabled": true},
+      "short_request_first_config": {
+        "enabled": true,
+        "threshold": 66560,
+        "long_max_wait_ms": 2000
+      }
+    },
     "multistream_overlap_shared_expert": true,
     "enable_mc2_hierarchy_comm": false,
     "enable_sparse_sfa_c8": true,
