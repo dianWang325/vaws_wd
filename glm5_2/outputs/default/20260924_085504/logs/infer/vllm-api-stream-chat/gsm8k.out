@@ -1,0 +1,30 @@
+[2026-09-24 08:55:22,183] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-chat/gsm8k]
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_api_infer.py", line 704, in <module>
+    raise e
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_api_infer.py", line 701, in <module>
+    inferencer.run(task_state_manager)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_api_infer.py", line 480, in run
+    data_list, finish_data_count, global_indexes = self._get_data_list()
+                                                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_api_infer.py", line 167, in _get_data_list
+    dataset = build_dataset_from_cfg(dataset_cfg, task_state_manager=self.task_state_manager)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/utils/config/build.py", line 124, in build_dataset_from_cfg
+    return LOAD_DATASET.build(dataset_cfg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/mmengine/registry/registry.py", line 570, in build
+    return self.build_func(cfg, *args, **kwargs, registry=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/mmengine/registry/build_functions.py", line 121, in build_from_cfg
+    obj = obj_cls(**args)  # type: ignore
+          ^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/base.py", line 43, in __init__
+    self.dataset = self.load(**kwargs)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/gsm8k.py", line 32, in load
+    with open(split_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/utils/../../../../ais_bench/datasets/gsm8k/test.jsonl'
+[2026-09-24 08:55:22,684] [ais_bench] [[33mWARNING[0m] Task state is error, exit loop
+[ERROR] 2026-09-24-08:55:22 (PID:239690, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

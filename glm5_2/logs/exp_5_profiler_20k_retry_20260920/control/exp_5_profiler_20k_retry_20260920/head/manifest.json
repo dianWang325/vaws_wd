@@ -1,0 +1,9 @@
+{
+  "experiment": "exp_5_profiler_20k_retry_20260920",
+  "node": "head",
+  "yaml": "/home/w00985415/vaws_wd/glm5_2/logs/exp_5_profiler_20k_retry_20260920/experiment.yaml",
+  "yaml_sha256": "a9c8afa8dcf9e25496389efdeffb05bd34a8a33b67cfdbd5c173ee6a7724e30c",
+  "config_path": "/home/w00985415/vaws_wd/glm5_2/logs/exp_5_profiler_20k_retry_20260920/control/exp_5_profiler_20k_retry_20260920/head/ms_service_profiler_config.json",
+  "symbols_path": "/home/w00985415/vaws_wd/glm5_2/logs/exp_5_profiler_20k_retry_20260920/control/exp_5_profiler_20k_retry_20260920/head/service_profiling_symbols.yaml",
+  "prof_dir": "/home/w00985415/vaws_wd/glm5_2/logs/exp_5_profiler_20k_retry_20260920/profiles/head"
+}

@@ -1,0 +1,9 @@
+{
+  "experiment": "exp_dsacp_v2_20260920",
+  "node": "worker",
+  "yaml": "/home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/experiment.yaml",
+  "yaml_sha256": "4d2771dc696df01d3c611eff575f0178978e1d7ca96bc9e5dde666f252a51705",
+  "config_path": "/home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/control/exp_dsacp_v2_20260920/worker/ms_service_profiler_config.json",
+  "symbols_path": "/home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/control/exp_dsacp_v2_20260920/worker/service_profiling_symbols.yaml",
+  "prof_dir": "/home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/profiles/worker"
+}

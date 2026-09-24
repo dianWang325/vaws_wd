@@ -1,0 +1,26 @@
+name: exp_dsacp_v2_20260920
+profile:
+  prof_dir: /home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/profiles/{node}
+  acl_task_time: 0
+  acl_prof_task_time_level: ""
+  timelimit: 0
+
+symbols:
+  add:
+    - symbol: vllm_ascend.worker.worker:NPUWorker.execute_model
+      domain: ModelExecute
+      name: worker_execute_model
+      attributes:
+        - name: scheduled_tokens_by_request
+          expr: "str(args[1].num_scheduled_tokens)"
+        - name: total_num_scheduled_tokens
+          expr: "args[1].total_num_scheduled_tokens"
+
+    - symbol: vllm_ascend.worker.v2.model_runner:NPUModelRunner.execute_model
+      domain: ModelExecute
+      name: model_runner_v2_execute
+      attributes:
+        - name: scheduled_tokens_by_request
+          expr: "str(args[1].num_scheduled_tokens)"
+        - name: total_num_scheduled_tokens
+          expr: "args[1].total_num_scheduled_tokens"

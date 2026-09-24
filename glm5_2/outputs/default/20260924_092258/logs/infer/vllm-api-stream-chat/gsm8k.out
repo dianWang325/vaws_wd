@@ -1,0 +1,21 @@
+[2026-09-24 09:23:15,829] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-chat/gsm8k]
+[2026-09-24 09:23:15,888] [ais_bench] [[32mINFO[0m] Zero Retriever initialized, returning empty shot case for all queries
+[2026-09-24 09:23:15,899] [ais_bench] [[32mINFO[0m] Apply ice template finished
+[2026-09-24 09:23:15,900] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:15,901] [ais_bench] [[32mINFO[0m] Start warmup, run with concurrency: 2048
+Warmup:   0%|          | 0/1 [00:00<?, ?case/s]Warmup: 100%|██████████| 1/1 [00:10<00:00, 10.54s/case]Warmup: 100%|██████████| 1/1 [00:10<00:00, 10.54s/case]
+[2026-09-24 09:23:26,448] [ais_bench] [[32mINFO[0m] Dataset needed memory size: 0.11748505 MB
+[2026-09-24 09:23:26,448] [ais_bench] [[32mINFO[0m] Memory usage check passed: 17.48% < 80% (Available: 1606.85 GB)
+[2026-09-24 09:23:26,450] [ais_bench] [[33mWARNING[0m] The request rate is below 0.1, resulting in an excessively long interval between two consecutive requests.
+[2026-09-24 09:23:26,450] [ais_bench] [[32mINFO[0m] Traffic request rate: 0 RPS with burstiness 1.0.
+[2026-09-24 09:23:26,450] [ais_bench] [[32mINFO[0m] Request rate (0.0) or ramp end rps (None) < 0.001, sending all requests simultaneously
+[2026-09-24 09:23:26,450] [ais_bench] [[32mINFO[0m] Total concurrency: 2048, per worker concurrency: [410, 410, 410, 409, 409]
+[2026-09-24 09:23:26,450] [ais_bench] [[32mINFO[0m] Total data num: 200, per worker data num: [40, 40, 40, 40, 40]
+[2026-09-24 09:23:26,485] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:26,504] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:26,522] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:26,540] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:26,558] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIChatStream is deprecated, please use VLLMCustomAPIChat with stream=True instead.
+[2026-09-24 09:23:26,656] [ais_bench] [[32mINFO[0m] All subprocesses have finished deserializing the first batch of data
+[2026-09-24 09:34:48,835] [ais_bench] [[32mINFO[0m] Api infer task time elapsed: 693.01s
+[2026-09-24 09:34:48,846] [ais_bench] [[32mINFO[0m] Task state is finish, exit loop

@@ -1,9 +1,9 @@
 # PD 分离部署 - Prefill 节点（TCP 跨机，MooncakeHybridConnector）
-# 目标机：80.5.9.129（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.138（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 与 prefill_node.sh 的差异：网卡/IP 环境变量填实 + 新增 socket/超时环境变量 + 新增 --kv-transfer-config
 # 并行配置未改动：PP2 x TP8
-nic_name="enp194s0f0"  # 80.5.9.129 实测业务网卡
-local_ip="80.5.9.129"
+nic_name="enp194s0f0"  # 80.5.9.138 实测业务网卡
+local_ip="80.5.9.138"
 export GLOO_SOCKET_IFNAME=$nic_name
 export TP_SOCKET_IFNAME=$nic_name
 export HCCL_SOCKET_IFNAME=$nic_name

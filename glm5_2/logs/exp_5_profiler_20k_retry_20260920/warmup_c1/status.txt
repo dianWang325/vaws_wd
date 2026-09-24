@@ -1,0 +1,2 @@
+start=2026-09-20T15:30:11+08:00 stage=warmup output=/home/w00985415/vaws_wd/glm5_2/outputs/exp_5_profiler_20k_retry_20260920/warmup_c1
+end=2026-09-20T16:22:56+08:00 exit_code=143

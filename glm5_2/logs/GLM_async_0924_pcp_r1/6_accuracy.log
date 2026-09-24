@@ -1,0 +1,92 @@
+2026-09-24 08:58:06,401 - INFO - get env LANG = C.UTF-8
+2026-09-24 08:58:06,402 - INFO - aisbench.log has been cleared for this run.
+2026-09-24 08:58:06,402 - INFO - aisbench_all.log separator added for this run.
+2026-09-24 08:58:06,403 - INFO - input token length: 3500
+2026-09-24 08:58:06,403 - INFO - output token length: 1500
+2026-09-24 08:58:06,403 - INFO - number of dataset: 8192
+2026-09-24 08:58:06,403 - INFO - concurrency: 2048
+2026-09-24 08:58:06,403 - INFO - request rate: 0
+2026-09-24 08:58:06,403 - INFO - test type: stream
+2026-09-24 08:58:06,403 - INFO - api type: chat
+2026-09-24 08:58:06,403 - INFO - test_times: 1
+2026-09-24 08:58:06,403 - INFO - v3.1 enable_think: False
+2026-09-24 08:58:06,403 - INFO - accuracy test: True
+2026-09-24 08:58:06,403 - INFO - npu numbers: 1
+2026-09-24 08:58:06,403 - INFO - prefix numbers: 1
+2026-09-24 08:58:06,403 - INFO - dataset repeat rate: 0.0
+2026-09-24 08:58:06,403 - INFO - test prefix dataset: False
+2026-09-24 08:58:06,403 - INFO - dataset type: normal
+2026-09-24 08:58:06,403 - INFO - seed: 1
+2026-09-24 08:58:06,403 - INFO - dp size: 1
+2026-09-24 08:58:06,403 - INFO - length_mean: None
+2026-09-24 08:58:06,403 - INFO - length_std: None
+2026-09-24 08:58:06,403 - INFO - length_min: None
+2026-09-24 08:58:06,404 - INFO - length_max: None
+2026-09-24 08:58:06,404 - INFO - test start, use command: ais_bench --models vllm_api_chat_temp --datasets gsm8k_gen_0_shot_cot_str_perf --work-dir /home/w00985415/vaws_wd/glm5_2/outputs/default --dump-eval-details
+2026-09-24 08:58:06,404 - INFO - [开始] 全量数据集测试
+2026-09-24 08:58:06,404 - INFO - Api config file:
+2026-09-24 08:58:06,405 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/benchmark/configs/models/vllm_api/vllm_api_chat_temp.py ==> /home/w00985415/vaws_wd/glm5_2/aisbench_auto_tools_prefix/temp_api.py
+2026-09-24 08:58:06,405 - INFO - src_file: /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+2026-09-24 08:58:06,405 - INFO - dst_file: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl
+2026-09-24 08:58:06,405 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl ==> /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+[2026-09-24 08:58:14,843] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
+[2026-09-24 08:58:14,852] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
+[2026-09-24 08:58:14,855] [ais_bench] [[32mINFO[0m] Loading example: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/example.py
+[2026-09-24 08:58:14,884] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806
+[2026-09-24 08:58:14,945] [ais_bench] [[32mINFO[0m] Starting inference tasks...
+[2026-09-24 08:58:14,949] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[?1049h[22;0;0t[1;24r(B[m[4l[?7h[?25l[24;1H[?12l[?25h[?1049l[23;0;0t[?1l>[2026-09-24 08:58:14,986] [ais_bench] [[33mWARNING[0m] Can't set cursor because of endwin() returned ERR, running in background mode
+[2026-09-24 08:58:14,986] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 241208, Refresh interval: 0.5, Run in background: True
+Monitoring tasks progress:   0%|          | 0/1 [00:00<?, ?it/s][2026-09-24 08:58:14,988] [ais_bench] [[33mWARNING[0m] Failed to read status file '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json': [Errno 2] No such file or directory: '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json'. Attempting to clear and continuing.
+Monitoring tasks progress: 100%|██████████| 1/1 [07:03<00:00, 423.82s/it]Monitoring tasks progress: 100%|██████████| 1/1 [07:03<00:00, 423.82s/it]
+[2026-09-24 09:05:20,219] [ais_bench] [[32mINFO[0m] Inference tasks completed.
+[2026-09-24 09:05:20,227] [ais_bench] [[32mINFO[0m] Starting evaluation tasks...
+[2026-09-24 09:05:20,231] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[?1049h[22;0;0t[1;24r(B[m[4l[?7h[?25l[24;1H[?12l[?25h[?1049l[23;0;0t[?1l>[2026-09-24 09:05:20,261] [ais_bench] [[33mWARNING[0m] Can't set cursor because of endwin() returned ERR, running in background mode
+[2026-09-24 09:05:20,261] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 243557, Refresh interval: 0.5, Run in background: True
+Monitoring tasks progress:   0%|          | 0/1 [00:00<?, ?it/s][2026-09-24 09:05:20,263] [ais_bench] [[33mWARNING[0m] Failed to read status file '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json': [Errno 2] No such file or directory: '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json'. Attempting to clear and continuing.
+Monitoring tasks progress: 100%|██████████| 1/1 [00:10<00:00, 10.01s/it]Monitoring tasks progress: 100%|██████████| 1/1 [00:10<00:00, 10.01s/it]
+[2026-09-24 09:05:31,491] [ais_bench] [[32mINFO[0m] Evaluation tasks completed.
+[2026-09-24 09:05:31,500] [ais_bench] [[32mINFO[0m] Summarizing evaluation results...
+[2026-09-24 09:05:31,508] [ais_bench] [[32mINFO[0m] write summary to /home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/summary/summary_20260924_085806.txt
+[2026-09-24 09:05:31,508] [ais_bench] [[32mINFO[0m] write csv to /home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/summary/summary_20260924_085806.csv
+[2026-09-24 09:05:31,508] [ais_bench] [[32mINFO[0m] write markdown summary to /home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_085806/summary/summary_20260924_085806.md
+dataset    version    metric    mode      vllm-api-stream-chat
+---------  ---------  --------  ------  ----------------------
+gsm8k      36f20d     accuracy  gen                      61.50
+
+
+The markdown format results is as below:
+
+| dataset | version | metric | mode | vllm-api-stream-chat |
+|----- | ----- | ----- | ----- | -----|
+| gsm8k | 36f20d | accuracy | gen | 61.50 |
+
+2026-09-24 09:05:32,989 - INFO - [完成] 全量数据集测试完成，结果保存在aisbench_result.csv
+2026-09-24 09:05:32,990 - INFO - {'current_time': '2026-09-24 09:05:32', 'input_len': 99999, 'output_len': 99999, 'total_req': 99999, 'max_cc': 99999, 'cc': 99999, 'rr': '0', 'repeat_rate': 0.0, 'TTFT avg': 99999, 'TTFT P90': 99999, 'TPOT avg': 99999, 'TPOT SLO_P90': 99999, 'E2E_time': 99999, 'output_throughput': 99999, 'single_output_throughput': 99999, 'E2E_throughput': 9999, 'single_E2E_throughput': 9999, 'qps': 9999, 'qpm': 9999, 'input_token_throughput': 9999, 'prefill_token_throughput': 9999, 'E2EL avg': 9999, 'E2EL P90': 9999}
+2026-09-24 09:05:32,990 - INFO - aisbench.log saved at current directory: /home/w00985415/vaws_wd/glm5_2/aisbench_auto_tools_prefix
+2026-09-24 09:05:32,995 - INFO - 文件已存在，读取现有数据
+2026-09-24 09:05:32,999 - INFO - 成功追加新行
+from ais_bench.benchmark.models import VLLMCustomAPIChatStream
+
+models = [
+    dict(
+        attr="service",
+        type=VLLMCustomAPIChatStream,
+        abbr='vllm-api-stream-chat',
+        path="/mnt/weight/GLM-5.2-W4A8C8-0713-MTP",
+        model="glm-52",
+        api_key="",
+        request_rate=0,
+        retry=2,
+        host_ip="80.5.9.138",
+        host_port=9000,
+        url="",
+        max_out_len=1500,
+        batch_size=2048,
+        generation_kwargs=dict(
+            temperature=1.0,
+            top_p = 0.95
+        )
+    )
+]

@@ -1,0 +1,42 @@
+2026-09-24 09:16:25,936 - INFO - get env LANG = C.UTF-8
+2026-09-24 09:16:25,938 - INFO - aisbench.log has been cleared for this run.
+2026-09-24 09:16:25,938 - INFO - aisbench_all.log separator added for this run.
+2026-09-24 09:16:25,938 - INFO - input token length: 3500
+2026-09-24 09:16:25,938 - INFO - output token length: 4096
+2026-09-24 09:16:25,938 - INFO - number of dataset: 8192
+2026-09-24 09:16:25,938 - INFO - concurrency: 2048
+2026-09-24 09:16:25,938 - INFO - request rate: 0
+2026-09-24 09:16:25,938 - INFO - test type: stream
+2026-09-24 09:16:25,939 - INFO - api type: chat
+2026-09-24 09:16:25,939 - INFO - test_times: 1
+2026-09-24 09:16:25,939 - INFO - v3.1 enable_think: False
+2026-09-24 09:16:25,939 - INFO - accuracy test: True
+2026-09-24 09:16:25,939 - INFO - npu numbers: 1
+2026-09-24 09:16:25,939 - INFO - prefix numbers: 1
+2026-09-24 09:16:25,939 - INFO - dataset repeat rate: 0.0
+2026-09-24 09:16:25,939 - INFO - test prefix dataset: False
+2026-09-24 09:16:25,939 - INFO - dataset type: normal
+2026-09-24 09:16:25,939 - INFO - seed: 1
+2026-09-24 09:16:25,939 - INFO - dp size: 1
+2026-09-24 09:16:25,939 - INFO - length_mean: None
+2026-09-24 09:16:25,939 - INFO - length_std: None
+2026-09-24 09:16:25,939 - INFO - length_min: None
+2026-09-24 09:16:25,939 - INFO - length_max: None
+2026-09-24 09:16:25,940 - INFO - test start, use command: ais_bench --models vllm_api_chat_temp --datasets gsm8k_gen_0_shot_cot_str_perf --work-dir /home/w00985415/vaws_wd/glm5_2/outputs/default --dump-eval-details
+2026-09-24 09:16:25,940 - INFO - [开始] 全量数据集测试
+2026-09-24 09:16:25,940 - INFO - Api config file:
+2026-09-24 09:16:25,941 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/benchmark/configs/models/vllm_api/vllm_api_chat_temp.py ==> /home/w00985415/vaws_wd/glm5_2/aisbench_auto_tools_prefix/temp_api.py
+2026-09-24 09:16:25,941 - INFO - src_file: /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+2026-09-24 09:16:25,941 - INFO - dst_file: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl
+2026-09-24 09:16:25,941 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl ==> /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+[2026-09-24 09:16:34,386] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
+[2026-09-24 09:16:34,395] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
+[2026-09-24 09:16:34,397] [ais_bench] [[32mINFO[0m] Loading example: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/example.py
+[2026-09-24 09:16:34,427] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_091626
+[2026-09-24 09:16:34,492] [ais_bench] [[32mINFO[0m] Starting inference tasks...
+[2026-09-24 09:16:34,496] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[?1049h[22;0;0t[1;24r(B[m[4l[?7h[?25l[24;1H[?12l[?25h[?1049l[23;0;0t[?1l>[2026-09-24 09:16:34,534] [ais_bench] [[33mWARNING[0m] Can't set cursor because of endwin() returned ERR, running in background mode
+[2026-09-24 09:16:34,534] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 247788, Refresh interval: 0.5, Run in background: True
+Monitoring tasks progress:   0%|          | 0/1 [00:00<?, ?it/s][2026-09-24 09:16:34,536] [ais_bench] [[33mWARNING[0m] Failed to read status file '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_091626/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json': [Errno 2] No such file or directory: '/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_091626/status_tmp/tmp_vllm-api-stream-chat_gsm8k.json'. Attempting to clear and continuing.
+[2026-09-24 09:20:23,070] [ais_bench] [[1m[31mERROR[0m] [[1m[41m[33mRUNNER-TASK-001[0m][1m[31mtask failed[0m. OpenICLApiInfervllm-api-stream-chat/gsm8k failed with code -15, see
+/home/w00985415/vaws_wd/glm5_2/outputs/default/20260924_091626/logs/infer/vllm-api-stream-chat/gsm8k.out | Visit [4m[35mhttps://ais-bench-benchmark.readthedocs.io/zh-cn/latest/faqs/error_codes.html#runner-task-001[0m for further help.

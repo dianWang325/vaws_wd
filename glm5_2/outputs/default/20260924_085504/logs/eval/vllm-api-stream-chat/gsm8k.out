@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_eval.py", line 521, in <module>
+    raise e
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_eval.py", line 518, in <module>
+    evaluator.run(task_state_manager)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_eval.py", line 99, in run
+    self._score()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/tasks/openicl_eval.py", line 115, in _score
+    test_set = build_dataset_from_cfg(self.dataset_cfg, task_state_manager=self.task_state_manager).test
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/utils/config/build.py", line 124, in build_dataset_from_cfg
+    return LOAD_DATASET.build(dataset_cfg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/mmengine/registry/registry.py", line 570, in build
+    return self.build_func(cfg, *args, **kwargs, registry=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/mmengine/registry/build_functions.py", line 121, in build_from_cfg
+    obj = obj_cls(**args)  # type: ignore
+          ^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/base.py", line 43, in __init__
+    self.dataset = self.load(**kwargs)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/gsm8k.py", line 32, in load
+    with open(split_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/datasets/utils/../../../../ais_bench/datasets/gsm8k/test.jsonl'
+[2026-09-24 08:55:33,991] [ais_bench] [[33mWARNING[0m] Task state is error, exit loop
+[ERROR] 2026-09-24-08:55:33 (PID:239966, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

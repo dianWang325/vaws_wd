@@ -1,0 +1,58 @@
+INFO 09-20 17:06:49 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 09-20 17:06:49 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 09-20 17:06:49 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 09-20 17:06:49 [__init__.py:272] Platform plugin ascend is activated
+INFO 09-20 17:06:49 [platform.py:69] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+2026-09-20 17:06:55,196 - 112837 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.28.1rc1.dev570+ga97dacb71.empty: default 1
+2026-09-20 17:06:55,199 - 112837 - ServiceProfiler - WARNING - Missing environment variable 'PROMETHEUS_MULTIPROC_DIR' will result in partial metrics loss. You are advised to run 'export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory'
+2026-09-20 17:06:55,199 - 112837 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+2026-09-20 17:06:55,203 - 112837 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /home/w00985415/vaws_wd/glm5_2/logs/exp_dsacp_v2_20260920/control/exp_dsacp_v2_20260920/worker/service_profiling_symbols.yaml
+2026-09-20 17:06:55,211 - 112837 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-09-20 17:06:55,283 - 112837 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-09-20 17:06:55,284 - 112837 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-09-20 17:06:55,284 - 112837 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+2026-09-20 17:06:55,287 - 112837 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-09-20 17:06:55,287 - 112837 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+INFO 09-20 17:06:57 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 09-20 17:06:57 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 09-20 17:06:57 [envs.py:2284] Unknown vLLM environment variable detected: VLLM_ASCEND_ENABLE_NZ
+WARNING 09-20 17:06:57 [envs.py:2284] Unknown vLLM environment variable detected: VLLM_RPC_TIMEOUT
+INFO 09-20 17:06:57 [model.py:691] Resolved architecture: GlmMoeDsaForCausalLM
+INFO 09-20 17:06:57 [model.py:2031] Using max model len 204800
+INFO 09-20 17:06:57 [arg_utils.py:2252] Inferred data_parallel_rank 1 from node_rank 1
+WARNING 09-20 17:06:57 [speculative.py:1106] method `deepseek_mtp` is deprecated and replaced with mtp.
+INFO 09-20 17:06:57 [model.py:691] Resolved architecture: DeepseekV32MTPModel
+INFO 09-20 17:06:57 [model.py:2031] Using max model len 1048576
+INFO 09-20 17:06:57 [speculative.py:1601] Overriding draft model max model len from 1048576 to 204800
+INFO 09-20 17:06:57 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=20480.
+INFO 09-20 17:06:59 [vllm.py:1329] Disabling NCCL for DP synchronization when using async scheduling.
+WARNING 09-20 17:06:59 [vllm.py:1382] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-20 17:06:59 [vllm.py:1417] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 09-20 17:06:59 [kernel.py:372] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+INFO 09-20 17:06:59 [vllm.py:1596] Cudagraph is disabled under eager mode
+WARNING 09-20 17:06:59 [platform.py:647] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+WARNING 09-20 17:06:59 [platform.py:704] Speculative quantization is set but Ascend automatically uses the main model's quantization method. parameter=quantization, action: resetting to None. 
+WARNING 09-20 17:06:59 [ascend_config.py:1469] FlashComm is deprecated; remove enable_flashcomm1 and VLLM_ASCEND_ENABLE_FLASHCOMM1 from the configuration. Use upstream configuration instead
+WARNING 09-20 17:06:59 [ascend_config.py:1351] additional_config.recompute_scheduler_enable is deprecated; use additional_config.scheduler_config.recompute_scheduler_enable instead.
+INFO 09-20 17:06:59 [ascend_config.py:223] Dynamic EPLB is False
+INFO 09-20 17:06:59 [ascend_config.py:224] The number of redundant experts is 0
+INFO 09-20 17:06:59 [ascend_config.py:615] FlashComm1 is enabled.
+WARNING 09-20 17:06:59 [ascend_config.py:637] enable_dsa_cp will be fully deprecated once PCP is ready. Consider trying prefill context parallelism with --tensor-parallel-size 1 --prefill-context-parallel-size 8 to preserve the current world size. Remove enable_dsa_cp from additional_config when enabling PCP. Check PCP support for your model and deployment configuration.
+INFO 09-20 17:06:59 [platform.py:1086] Compilation disabled, using eager mode by default
+INFO 09-20 17:06:59 [utils.py:1276] Block size is set to 128 if prefix cache or chunked prefill is enabled.
+INFO 09-20 17:06:59 [platform.py:1338] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+INFO 09-20 17:06:59 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+INFO 09-20 17:06:59 [serve.py:232] Launching 1 data parallel engine(s) in headless mode, with head node address tcp://80.5.9.141:16591.
+INFO 09-20 17:07:04 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 09-20 17:07:04 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 09-20 17:07:04 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 09-20 17:07:04 [__init__.py:272] Platform plugin ascend is activated
+INFO 09-20 17:07:04 [platform.py:69] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+INFO 09-20 17:10:44 [serve.py:257] Waiting up to 0 seconds for processes to exit
+INFO 09-20 17:10:44 [utils.py:620] [shutdown] Process manager: send sigterm to process EngineCore_DP1
+WARNING 09-20 17:10:44 [utils.py:640] [shutdown] Process manager: force killing remaining processes count=1
+WARNING 09-20 17:10:44 [utils.py:645] [shutdown] Process manager: force killing remaining process EngineCore_DP1 pid 113087
+INFO 09-20 17:10:44 [serve.py:259] Shutting down.
+[msservice_profiler] [PID:112837] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:112837] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

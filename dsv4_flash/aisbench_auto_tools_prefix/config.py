@@ -12,7 +12,7 @@ MODEL_NAME = "dsv4"
 # 模型权重路径, 用于读取 tokenizer
 MODEL_PATH = "/mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci"
 # 请求目的 IP
-HOST_IP = "80.5.9.129"
+HOST_IP = "80.5.9.138"
 # 请求目的端口
 HOST_PORT = "9000"
 

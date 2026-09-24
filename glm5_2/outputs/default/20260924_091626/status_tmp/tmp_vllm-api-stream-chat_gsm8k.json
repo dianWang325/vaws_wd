@@ -1,0 +1,1 @@
+[{"task_name": "vllm-api-stream-chat/gsm8k", "process_id": 247793, "start_time": 1790212603.9359376, "status": "inferencing", "task_log_path": "logs/infer/vllm-api-stream-chat/gsm8k.out", "other_kwargs": {"POST": 200, "RECV": 103, "FINISH": 103, "FAIL": 0}, "total_count": 200, "finish_count": 103, "progress_description": "[0.5 it/s]"}]

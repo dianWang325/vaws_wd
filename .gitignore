@@ -3,3 +3,5 @@ __pycache__/
 dsv4_flash/kernel_meta/
 dsv4_flash/outputs/
 dsv4_flash/logs/
+ms_service_profiler_adapter/kernel_meta/
+glm5_2/outputs/default/

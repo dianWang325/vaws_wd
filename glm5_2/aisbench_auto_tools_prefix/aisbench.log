@@ -1,0 +1,35 @@
+2026-09-24 09:22:57,876 - INFO - aisbench.log has been cleared for this run.
+2026-09-24 09:22:57,876 - INFO - aisbench_all.log separator added for this run.
+2026-09-24 09:22:57,876 - INFO - input token length: 3500
+2026-09-24 09:22:57,877 - INFO - output token length: 10000
+2026-09-24 09:22:57,877 - INFO - number of dataset: 8192
+2026-09-24 09:22:57,877 - INFO - concurrency: 2048
+2026-09-24 09:22:57,877 - INFO - request rate: 0
+2026-09-24 09:22:57,877 - INFO - test type: stream
+2026-09-24 09:22:57,877 - INFO - api type: chat
+2026-09-24 09:22:57,877 - INFO - test_times: 1
+2026-09-24 09:22:57,877 - INFO - v3.1 enable_think: False
+2026-09-24 09:22:57,877 - INFO - accuracy test: True
+2026-09-24 09:22:57,877 - INFO - npu numbers: 1
+2026-09-24 09:22:57,877 - INFO - prefix numbers: 1
+2026-09-24 09:22:57,877 - INFO - dataset repeat rate: 0.0
+2026-09-24 09:22:57,877 - INFO - test prefix dataset: False
+2026-09-24 09:22:57,877 - INFO - dataset type: normal
+2026-09-24 09:22:57,877 - INFO - seed: 1
+2026-09-24 09:22:57,877 - INFO - dp size: 1
+2026-09-24 09:22:57,877 - INFO - length_mean: None
+2026-09-24 09:22:57,878 - INFO - length_std: None
+2026-09-24 09:22:57,878 - INFO - length_min: None
+2026-09-24 09:22:57,878 - INFO - length_max: None
+2026-09-24 09:22:57,878 - INFO - test start, use command: ais_bench --models vllm_api_chat_temp --datasets gsm8k_gen_0_shot_cot_str_perf --work-dir /home/w00985415/vaws_wd/glm5_2/outputs/default --dump-eval-details
+2026-09-24 09:22:57,878 - INFO - [开始] 全量数据集测试
+2026-09-24 09:22:57,878 - INFO - Api config file:
+2026-09-24 09:22:57,879 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/benchmark/configs/models/vllm_api/vllm_api_chat_temp.py ==> /home/w00985415/vaws_wd/glm5_2/aisbench_auto_tools_prefix/temp_api.py
+2026-09-24 09:22:57,879 - INFO - src_file: /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+2026-09-24 09:22:57,879 - INFO - dst_file: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl
+2026-09-24 09:22:57,879 - INFO - make symlink: /home/w00985415/benchmark/ais_bench/datasets/gsm8k/test.jsonl ==> /home/w00985415/vaws_wd/glm5_2/datasets/GSM8K_200.jsonl
+2026-09-24 09:35:03,249 - INFO - [完成] 全量数据集测试完成，结果保存在aisbench_result.csv
+2026-09-24 09:35:03,249 - INFO - {'current_time': '2026-09-24 09:35:03', 'input_len': 99999, 'output_len': 99999, 'total_req': 99999, 'max_cc': 99999, 'cc': 99999, 'rr': '0', 'repeat_rate': 0.0, 'TTFT avg': 99999, 'TTFT P90': 99999, 'TPOT avg': 99999, 'TPOT SLO_P90': 99999, 'E2E_time': 99999, 'output_throughput': 99999, 'single_output_throughput': 99999, 'E2E_throughput': 9999, 'single_E2E_throughput': 9999, 'qps': 9999, 'qpm': 9999, 'input_token_throughput': 9999, 'prefill_token_throughput': 9999, 'E2EL avg': 9999, 'E2EL P90': 9999}
+2026-09-24 09:35:03,249 - INFO - aisbench.log saved at current directory: /home/w00985415/vaws_wd/glm5_2/aisbench_auto_tools_prefix
+2026-09-24 09:35:03,254 - INFO - 文件已存在，读取现有数据
+2026-09-24 09:35:03,259 - INFO - 成功追加新行
