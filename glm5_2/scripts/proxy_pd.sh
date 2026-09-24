@@ -10,5 +10,5 @@ python3 "$SCRIPT_DIR/dp_load_balance_proxy_server.py" \
   --port 9000 \
   --prefiller-hosts 80.5.9.133 \
   --prefiller-ports 18080 \
-  --decoder-hosts 80.5.9.141 \
+  --decoder-hosts 80.5.9.127 \
   --decoder-ports 18080
