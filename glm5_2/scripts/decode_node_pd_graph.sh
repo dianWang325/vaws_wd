@@ -49,7 +49,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --host 0.0.0.0 \
   --port 18080 \
   --served-model-name glm-52 \
-  --max-model-len 114688 \
+  --max-model-len 106496 \
   --max-num-batched-tokens 20480 \
   --gpu-memory-utilization 0.85 \
   --api-server-count 1 \
