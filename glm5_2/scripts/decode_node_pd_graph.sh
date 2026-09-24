@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PD 分离部署 - Decode 节点图模式版（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.9.127（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.143（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 依赖分支：test/cpp_async_mtp_pcp0924
 # 与 decode_node_pd.sh 的差异：
 #   + 去掉 --enforce-eager，开启 FULL_DECODE_ONLY 图模式压 TPOT（对齐 DSV4 decode 做法；
@@ -9,8 +9,8 @@
 # 日志：glm5_2/logs/glm52_pd_graph_decode.log
 set -euo pipefail
 
-nic_name="enp194s0f0"  # 80.5.9.127 实测业务网卡
-local_ip="80.5.9.127"
+nic_name="enp194s0f0"  # 80.5.9.143 实测业务网卡
+local_ip="80.5.9.143"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
@@ -58,7 +58,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --data-parallel-size 2 \
   --enable-chunked-prefill \
   --async-scheduling \
-  --data-parallel-address 80.5.9.127 \
+  --data-parallel-address 80.5.9.143 \
   --data-parallel-rpc-port 16591 \
   --tensor-parallel-size 8 \
   --enable-expert-parallel \
