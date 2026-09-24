@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # PD 分离部署 - Prefill 节点 PCP8 版（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.9.135（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.133（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 依赖分支：test/cpp_async_mtp_pcp0924 @ 4ec50e551（含完整 PR #17410：SFA-PCP veto + PCP PIECEWISE 图支持）
 # 拓扑：PP2 x TP1 x PCP8（单机 16 卡；对齐 DSV4 nightly 的 TP1+PCP 口径，PR #16846）
 # P 节点保留 CPP(profiling_chunk)+SRF(short_request_first)
 # 日志：glm5_2/logs/glm52_pd_pcp8_prefill.log
 set -euo pipefail
 
-nic_name="enp194s0f0"  # 80.5.9.135 实测业务网卡
-local_ip="80.5.9.135"
+nic_name="enp194s0f0"  # 80.5.9.133 实测业务网卡
+local_ip="80.5.9.133"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
