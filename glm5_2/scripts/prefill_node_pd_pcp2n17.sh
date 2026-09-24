@@ -1,20 +1,36 @@
 #!/usr/bin/env bash
-# PD 分离部署 - Prefill 节点 PCP4TP2 版（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.17.109（容器 wd_test0921 内运行，/home 已挂载进容器）
-# 依赖分支：test/cpp_async_mtp_pcp0924 @ 4ec50e551（含完整 PR #17410：SFA-PCP veto + PCP PIECEWISE 图支持）
-# 拓扑：PP2 x TP2 x PCP4（单机 16 卡；PCP8(TP1) 在 92k 非对齐尾部触发 veto NATIVE 回退链 split 崩溃后回退的折中粒度）
+# PD 分离部署 - Prefill 节点 PCP 双机版（17 网段，TCP 跨机，MooncakeConnectorV2）
+# 目标机：head=80.5.17.109 / worker=80.5.17.119（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 依赖分支：test/cpp_async_mtp_pcp0924 @ 4ec50e551（双机已 rsync 对齐 109 工作树）
+# 拓扑：PP2 x TP4 x PCP4（2 台 16 卡，PP stage 按机分界，TP4xPCP4 在单机内）
+# 背景：单机 PCP4TP2 在 87k/92k 超长 prefill 时 MoE token_dispatcher HcclBroadcast HBM OOM，
+#   扩双机 TP8 后每卡权重约 4.5GiB，显存压力解除
 # P 节点保留 CPP(profiling_chunk)+SRF(short_request_first)
-# TP2 每卡权重减半（约 18GiB），恢复 util 0.85 / max-num-batched-tokens 20480
-# 日志：glm5_2/logs/glm52_pd_pcp4tp2_prefill_<timestamp>.log（时间戳命名，不覆盖历史）
+# Run as: bash scripts/prefill_node_pd_pcp2n17.sh head|worker
+# 日志：glm5_2/logs/glm52_pd_pcp2n17_prefill_{head,worker}_<timestamp>.log（时间戳命名，不覆盖历史）
 set -euo pipefail
 
-nic_name="enp48s3u1u1"  # 80.5.17.109 实测业务网卡
-local_ip="80.5.17.109"
+role="${1:?expected head or worker}"
+case "$role" in
+  head)
+    local_ip=80.5.17.109
+    node_rank=0
+    server_role_args=(--api-server-count 1)
+    ;;
+  worker)
+    local_ip=80.5.17.119
+    node_rank=1
+    server_role_args=(--headless)
+    ;;
+  *) echo "invalid role: $role" >&2; exit 2 ;;
+esac
+
+nic_name="enp48s3u1u1"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
 mkdir -p "$log_dir"
-exec > "${log_dir}/glm52_pd_pcp4tp2_prefill_$(date +%Y%m%d_%H%M%S).log" 2>&1
+exec > "${log_dir}/glm52_pd_pcp2n17_prefill_${role}_$(date +%Y%m%d_%H%M%S).log" 2>&1
 
 export VLLM_HOST_IP="$local_ip"
 export HCCL_IF_IP="$local_ip"
@@ -49,19 +65,23 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --host 0.0.0.0 \
   --port 18080 \
   --served-model-name glm-52 \
-  --max-model-len 87040 \
+  --max-model-len 92160 \
   --max-num-batched-tokens 20480 \
-  --gpu-memory-utilization 0.85 \
-  --api-server-count 1 \
+  --gpu-memory-utilization 0.75 \
+  "${server_role_args[@]}" \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
   --pipeline-parallel-size 2 \
-  --tensor-parallel-size 2 \
+  --tensor-parallel-size 4 \
   --prefill-context-parallel-size 4 \
   --cp-kv-cache-interleave-size 128 \
   --enable-chunked-prefill \
   --async-scheduling \
   --distributed-executor-backend mp \
+  --nnodes 2 \
+  --node-rank "$node_rank" \
+  --master-addr 80.5.17.109 \
+  --master-port 7060 \
   --enforce-eager \
   --additional-config '{
     "enable_flashcomm1": true,
@@ -94,6 +114,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
    "kv_port": "30100",
    "engine_id": "0",
    "kv_connector_extra_config": {
-       "prefill": {"dp_size": 1, "tp_size": 2, "pp_size": 2, "pcp_size": 4},
+       "prefill": {"dp_size": 1, "tp_size": 4, "pp_size": 2, "pcp_size": 4},
        "decode":  {"dp_size": 2, "tp_size": 8, "pp_size": 1}
    }}'
