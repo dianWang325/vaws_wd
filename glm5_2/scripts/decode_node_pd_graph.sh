@@ -85,6 +85,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
    "kv_port": "30200",
    "engine_id": "1",
    "kv_connector_extra_config": {
-       "prefill": {"dp_size": 1, "tp_size": 4, "pp_size": 2, "pcp_size": 2},
+       "prefill": {"dp_size": 1, "tp_size": 1, "pp_size": 2, "pcp_size": 8},
        "decode":  {"dp_size": 2, "tp_size": 8, "pp_size": 1}
    }}'
