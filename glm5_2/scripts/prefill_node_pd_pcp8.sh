@@ -50,7 +50,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --served-model-name glm-52 \
   --max-model-len 114688 \
   --max-num-batched-tokens 20480 \
-  --gpu-memory-utilization 0.85 \
+  --gpu-memory-utilization 0.90 \
   --api-server-count 1 \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
