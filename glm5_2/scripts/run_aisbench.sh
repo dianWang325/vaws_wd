@@ -8,7 +8,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 tool_dir="${AISBENCH_TOOL_DIR:-$script_dir/../aisbench_auto_tools_prefix}"
 case "$stage" in
   warmup)
-    input_len="$((${MODEL_MAX_LEN:-204800} - 1))"
+    input_len="$((${MODEL_MAX_LEN:-87040} - 1))"
     output_len=1
     data_num=5
     concurrency=1

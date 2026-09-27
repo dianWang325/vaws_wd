@@ -51,15 +51,15 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --host 0.0.0.0 \
   --port 18080 \
   --served-model-name glm-52 \
-  --max-model-len 204800 \
+  --max-model-len 87040 \
   --max-num-batched-tokens 20480 \
   --gpu-memory-utilization 0.85 \
   --api-server-count 1 \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
   --pipeline-parallel-size 2 \
-  --tensor-parallel-size 4 \
-  --prefill-context-parallel-size 2 \
+  --tensor-parallel-size 2 \
+  --prefill-context-parallel-size 4 \
   --cp-kv-cache-interleave-size 128 \
   --enable-chunked-prefill \
   --async-scheduling \
