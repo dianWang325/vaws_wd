@@ -5,10 +5,14 @@
 # 客户端统一访问本 proxy 的 9000 端口
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_dir="${SCRIPT_DIR}/../logs"
+mkdir -p "$log_dir"
+deploy_ts="${DEPLOY_TS:-$(date +%m%d%H%M)}"
+exec > "${log_dir}/proxy__${deploy_ts}.log" 2>&1
 python3 "$SCRIPT_DIR/dp_load_balance_proxy_server.py" \
   --host 0.0.0.0 \
   --port 9000 \
-  --prefiller-hosts 80.5.17.109 \
+  --prefiller-hosts 80.5.9.129 \
   --prefiller-ports 18080 \
-  --decoder-hosts 80.5.17.113 \
+  --decoder-hosts 80.5.9.130 \
   --decoder-ports 18080

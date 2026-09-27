@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PD 分离部署 - Prefill 节点 PCP 版（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.9.138（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.129（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 依赖分支：test/cpp_async_mtp_pcp0924（rebase 到 upstream 99cef8c，PR #17355 Mooncake V2 支持 PCP）
 # 与 prefill_node_pd.sh 的差异：
 #   + 开启原生 PCP：--prefill-context-parallel-size 2，拓扑 PP2 x TP4 x PCP2（单机 16 卡）
@@ -10,13 +10,14 @@
 # 日志：glm5_2/logs/glm52_pd_pcp_prefill.log
 set -euo pipefail
 
-nic_name="enp194s0f0"  # 80.5.9.138 实测业务网卡
-local_ip="80.5.9.138"
+nic_name="enp194s0f0"  # 80.5.9.129 实测业务网卡
+local_ip="80.5.9.129"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
 mkdir -p "$log_dir"
-exec > "${log_dir}/glm52_pd_pcp_prefill.log" 2>&1
+deploy_ts="${DEPLOY_TS:-$(date +%m%d%H%M)}"
+exec > "${log_dir}/prefill_${deploy_ts}.log" 2>&1
 
 export VLLM_HOST_IP="$local_ip"
 export HCCL_IF_IP="$local_ip"
@@ -58,8 +59,8 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
   --pipeline-parallel-size 2 \
-  --tensor-parallel-size 2 \
-  --prefill-context-parallel-size 4 \
+  --tensor-parallel-size 4 \
+  --prefill-context-parallel-size 2 \
   --cp-kv-cache-interleave-size 128 \
   --enable-chunked-prefill \
   --async-scheduling \

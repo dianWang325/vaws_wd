@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PD 分离部署 - Decode 节点图模式版（TCP 跨机，MooncakeConnectorV2）
-# 目标机：80.5.17.113（容器 wd_test0921 内运行，/home 已挂载进容器）
+# 目标机：80.5.9.130（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 依赖分支：test/cpp_async_mtp_pcp0924
 # 与 decode_node_pd.sh 的差异：
 #   + 去掉 --enforce-eager，开启 FULL_DECODE_ONLY 图模式压 TPOT（对齐 DSV4 decode 做法；
@@ -9,13 +9,14 @@
 # 日志：glm5_2/logs/glm52_pd_graph_decode_<timestamp>.log（时间戳命名，不覆盖历史）
 set -euo pipefail
 
-nic_name="enp48s3u1u1"  # 80.5.17.113 实测业务网卡
-local_ip="80.5.17.113"
+nic_name="enp194s0f0"  # 80.5.9.130 实测业务网卡
+local_ip="80.5.9.130"
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 log_dir="${script_dir}/../logs"
 mkdir -p "$log_dir"
-exec > "${log_dir}/glm52_pd_graph_decode_$(date +%Y%m%d_%H%M%S).log" 2>&1
+deploy_ts="${DEPLOY_TS:-$(date +%m%d%H%M)}"
+exec > "${log_dir}/decode_${deploy_ts}.log" 2>&1
 
 export VLLM_HOST_IP="$local_ip"
 export HCCL_IF_IP="$local_ip"
@@ -58,7 +59,7 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --data-parallel-size 2 \
   --enable-chunked-prefill \
   --async-scheduling \
-  --data-parallel-address 80.5.17.113 \
+  --data-parallel-address 80.5.9.130 \
   --data-parallel-rpc-port 16591 \
   --tensor-parallel-size 8 \
   --enable-expert-parallel \
@@ -85,6 +86,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
    "kv_port": "30200",
    "engine_id": "1",
    "kv_connector_extra_config": {
-       "prefill": {"dp_size": 1, "tp_size": 2, "pp_size": 2, "pcp_size": 4},
+       "prefill": {"dp_size": 1, "tp_size": 4, "pp_size": 2, "pcp_size": 2},
        "decode":  {"dp_size": 2, "tp_size": 8, "pp_size": 1}
    }}'

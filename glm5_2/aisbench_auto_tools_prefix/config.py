@@ -5,7 +5,7 @@ DATASET_PATH = "/home/w00985415/vaws_wd/glm5_2/datasets"
 
 # aisbench 工作路径, 为 git clone aisbench 后得到的 benchmark 目录的绝对路径
 # 可通过命令 `pip show ais-bench-benchmark` 查询location
-WORK_PATH = "/home/w00985415/benchmark"
+WORK_PATH = "/usr/local/python3.11.10/lib/python3.11/site-packages"
 
 # 服务化配置的模型名称
 MODEL_NAME = "glm-52"
@@ -14,7 +14,7 @@ MODEL_PATH = "/mnt/weight/GLM-5.2-W4A8C8-0713-MTP"
 # 请求目的 IP
 # PD 分离部署：客户端统一访问 proxy（默认放在 P 节点 80.5.17.109 容器内，9000 端口）
 # 若 proxy 改放其他机器（如本机），请同步修改此处
-HOST_IP = "80.5.17.109"
+HOST_IP = "80.5.9.129"
 # 请求目的端口
 HOST_PORT = "9000"
 
