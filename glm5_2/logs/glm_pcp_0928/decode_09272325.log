@@ -1,0 +1,130 @@
+[W927 23:23:46.010014570 FunctionLoader.cpp:48] Warning: LD_PRELOAD detected, FunctionLoader prefers RTLD_DEFAULT for symbol resolution. (function operator())
+INFO 09-27 23:23:50 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 09-27 23:23:50 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 09-27 23:23:50 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 09-27 23:23:50 [__init__.py:272] Platform plugin ascend is activated
+INFO 09-27 23:23:50 [platform.py:71] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+2026-09-27 23:23:56,434 - 302 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.28.1rc1.dev676+g84030bbe3.empty: default 1
+INFO 09-27 23:23:57 [patch_indexer_kv_dtype.py:102] Patched AttentionConfig.indexer_kv_dtype to accept 'int8' (DeepSeek V4 Ascend indexer K cache dtype).
+INFO 09-27 23:23:57 [patch_kv_cache_dtype.py:115] Patched CacheConfig.cache_dtype to accept 'int8' (DeepSeek V4 Ascend MLA KV cache dtype).
+INFO 09-27 23:23:57 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 09-27 23:23:57 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347] 
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.28.1rc1.dev676+g84030bbe3
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347]   █▄█▀ █     █     █     █  model   /mnt/weight/GLM-5.2-W4A8C8-0713-MTP
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:347] 
+(APIServer pid=302) INFO 09-27 23:23:57 [api_utils.py:286] non-default args: {'model_tag': '/mnt/weight/GLM-5.2-W4A8C8-0713-MTP', 'host': '0.0.0.0', 'port': 18080, 'model': '/mnt/weight/GLM-5.2-W4A8C8-0713-MTP', 'seed': 1024, 'max_model_len': 92160, 'quantization': 'ascend', 'served_model_name': ['glm-52'], 'safetensors_load_strategy': 'prefetch', 'tensor_parallel_size': 8, 'data_parallel_size': 2, 'data_parallel_address': '80.5.9.130', 'data_parallel_rpc_port': 16591, 'enable_expert_parallel': True, 'gpu_memory_utilization': 0.85, 'enable_prefix_caching': False, 'max_num_batched_tokens': 20480, 'max_num_seqs': 8, 'enable_chunked_prefill': True, 'async_scheduling': True, 'speculative_config': {'num_speculative_tokens': 1, 'method': 'deepseek_mtp', 'enforce_eager': True}, 'kv_transfer_config': KVTransferConfig(kv_connector='MooncakeConnectorV2', engine_id='1', kv_buffer_device='npu', kv_buffer_size=1000000000.0, kv_role='kv_consumer', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=30200, kv_connector_extra_config={'prefill': {'dp_size': 1, 'tp_size': 2, 'pp_size': 2, 'pcp_size': 4}, 'decode': {'dp_size': 2, 'tp_size': 8, 'pp_size': 1}}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='fail'), 'compilation_config': {'mode': None, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': [], 'ir_enable_torch_wrap': None, 'splitting_ops': None, 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': None, 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_DECODE_ONLY: (2, 0)>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': None, 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': None, 'pass_config': {}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': None, 'static_all_moe_layers': []}, 'additional_config': {'enable_flashcomm1': True, 'ascend_compilation_config': {'enable_npugraph_ex': True, 'enable_static_kernel': False}, 'multistream_overlap_shared_expert': True, 'enable_mc2_hierarchy_comm': False, 'enable_sparse_sfa_c8': True, 'enable_sparse_li_c8': True, 'enable_cpu_binding': True, 'recompute_scheduler_enable': False}}
+(APIServer pid=302) WARNING 09-27 23:23:57 [envs.py:2290] Unknown vLLM environment variable detected: VLLM_ASCEND_ENABLE_NZ
+(APIServer pid=302) WARNING 09-27 23:23:57 [envs.py:2290] Unknown vLLM environment variable detected: VLLM_RPC_TIMEOUT
+(APIServer pid=302) INFO 09-27 23:24:10 [model.py:692] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=302) INFO 09-27 23:24:10 [model.py:2030] Using max model len 92160
+(APIServer pid=302) WARNING 09-27 23:24:10 [speculative.py:1116] method `deepseek_mtp` is deprecated and replaced with mtp.
+(APIServer pid=302) INFO 09-27 23:24:24 [model.py:692] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=302) INFO 09-27 23:24:24 [model.py:2030] Using max model len 1048576
+(APIServer pid=302) INFO 09-27 23:24:24 [speculative.py:1611] Overriding draft model max model len from 1048576 to 92160
+(APIServer pid=302) INFO 09-27 23:24:24 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=20480.
+(APIServer pid=302) INFO 09-27 23:24:26 [vllm.py:1388] Disabling NCCL for DP synchronization when using async scheduling.
+(APIServer pid=302) INFO 09-27 23:24:26 [kernel.py:369] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=302) WARNING 09-27 23:24:26 [platform.py:659] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+(APIServer pid=302) WARNING 09-27 23:24:26 [platform.py:716] Speculative quantization is set but Ascend automatically uses the main model's quantization method. parameter=quantization, action: resetting to None. 
+(APIServer pid=302) WARNING 09-27 23:24:26 [ascend_config.py:1487] additional_config.recompute_scheduler_enable is deprecated; use additional_config.scheduler_config.recompute_scheduler_enable instead.
+(APIServer pid=302) INFO 09-27 23:24:26 [ascend_config.py:240] Dynamic EPLB is False
+(APIServer pid=302) INFO 09-27 23:24:26 [ascend_config.py:241] The number of redundant experts is 0
+(APIServer pid=302) INFO 09-27 23:24:26 [ascend_config.py:639] FlashComm1 is enabled.
+(APIServer pid=302) WARNING 09-27 23:24:26 [vllm.py:1957] Batch sizes [1, 2, 4] are removed because they are not multiple of tp_size 8 when sequence parallelism is enabled
+(APIServer pid=302) INFO 09-27 23:24:26 [utils.py:1341] Block size is set to 128 if prefix cache or chunked prefill is enabled.
+(APIServer pid=302) INFO 09-27 23:24:26 [platform.py:1372] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(APIServer pid=302) INFO 09-27 23:24:26 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=302) [transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[W927 23:24:31.472455660 FunctionLoader.cpp:48] Warning: LD_PRELOAD detected, FunctionLoader prefers RTLD_DEFAULT for symbol resolution. (function operator())
+INFO 09-27 23:24:34 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 09-27 23:24:34 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 09-27 23:24:34 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 09-27 23:24:34 [__init__.py:272] Platform plugin ascend is activated
+INFO 09-27 23:24:34 [platform.py:71] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+(APIServer pid=302) Traceback (most recent call last):
+(APIServer pid=302)   File "/usr/local/python3.11.10/bin/vllm", line 8, in <module>
+(APIServer pid=302)     sys.exit(main())
+(APIServer pid=302)              ^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/cli/main.py", line 106, in main
+(APIServer pid=302)     args.dispatch_function(args)
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/cli/serve.py", line 153, in cmd
+(APIServer pid=302)     uvloop.run(run_server(args))
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvloop/__init__.py", line 92, in run
+(APIServer pid=302)     return runner.run(wrapper())
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/asyncio/runners.py", line 118, in run
+(APIServer pid=302)     return self._loop.run_until_complete(task)
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=302)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=302)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(APIServer pid=302)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(APIServer pid=302)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(APIServer pid=302)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(APIServer pid=302)   File "uvloop/cbhandles.pyx", line 61, in uvloop.loop.Handle._run
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=302)     return await main
+(APIServer pid=302)            ^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 176, in run_server
+(APIServer pid=302)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 190, in run_server_worker
+(APIServer pid=302)     async with build_async_engine_client(
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 210, in __aenter__
+(APIServer pid=302)     return await anext(self.gen)
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 58, in build_async_engine_client
+(APIServer pid=302)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 210, in __aenter__
+(APIServer pid=302)     return await anext(self.gen)
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 94, in build_async_engine_client_from_engine_args
+(APIServer pid=302)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=302)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/async_llm.py", line 226, in from_vllm_config
+(APIServer pid=302)     return cls(
+(APIServer pid=302)            ^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/async_llm.py", line 160, in __init__
+(APIServer pid=302)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=302)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=302)     return func(*args, **kwargs)
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/core_client.py", line 159, in make_async_mp_client
+(APIServer pid=302)     return DPLBAsyncMPClient(
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/core_client.py", line 1529, in __init__
+(APIServer pid=302)     super().__init__(
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/core_client.py", line 1339, in __init__
+(APIServer pid=302)     super().__init__(
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=302)     return func(*args, **kwargs)
+(APIServer pid=302)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=302)     super().__init__(
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=302)     with launch_core_engines(
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 137, in __enter__
+(APIServer pid=302)     return next(self.gen)
+(APIServer pid=302)            ^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/utils.py", line 1139, in launch_core_engines
+(APIServer pid=302)     coordinator = DPCoordinator(
+(APIServer pid=302)                   ^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/coordinator.py", line 120, in __init__
+(APIServer pid=302)     ) = self._wait_for_zmq_addrs(parent_zmq_addr_pipe)
+(APIServer pid=302)         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/v1/engine/coordinator.py", line 62, in _wait_for_zmq_addrs
+(APIServer pid=302)     ready = multiprocessing.connection.wait(
+(APIServer pid=302)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+(APIServer pid=302)     ready = selector.select(timeout)
+(APIServer pid=302)             ^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/usr/local/python3.11.10/lib/python3.11/selectors.py", line 415, in select
+(APIServer pid=302)     fd_event_list = self._selector.poll(timeout)
+(APIServer pid=302)                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=302)   File "/home/w00985415/proj_0921/deps/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 171, in _interrupt_init
+(APIServer pid=302)     raise KeyboardInterrupt("terminated")
+(APIServer pid=302) KeyboardInterrupt: terminated
+(APIServer pid=302) [ERROR] 2026-09-27-23:24:38 (PID:302, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
