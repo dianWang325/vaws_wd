@@ -187,6 +187,13 @@ python3 aisbench_test.py --dataset "/mnt/path_to_dataset/precision_dataset.jsonl
 - 在其他容器或新环境中使用时，需先从 [`aisbench_auto_tools_prefix` 的 `codex/glm52-gsm8k-extractor` 分支](https://github.com/dianWang325/aisbench_auto_tools_prefix/tree/codex/glm52-gsm8k-extractor)应用答案提取补丁，再运行 `aisbench_test.py`。
 - 本工具箱不会自动安装该补丁；运行精度测试前必须确认 AISBench 安装目录中的 GSM8K 提取器已经完成适配。
 
+补丁实现逻辑与功能：
+
+1. 如果输出包含 `</think>`，只在最后一个 `</think>` 之后提取答案，避免思考内容中的 `Question:` 或中间计算干扰判分。
+2. 使用带数字边界的正则匹配负数、整数、小数和千位逗号数字，并在比较前移除逗号。
+3. 优先识别答案句中 Markdown 加粗的数字；当答案后还有时间、数量或单位数字时，避免简单取末尾数字造成误判。
+4. 没有可靠数字时仍返回 `NULL`，其余场景回退到最终回答中的最后一个数字，保持与原提取器相近的行为。
+
 ## 四、结果获取
 
 1、性能结果获取（暂未支持精度结果获取，需在日志中查看）：
