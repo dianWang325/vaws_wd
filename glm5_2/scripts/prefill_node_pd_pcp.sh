@@ -3,7 +3,7 @@
 # 目标机：80.5.9.129（容器 wd_test0921 内运行，/home 已挂载进容器）
 # 依赖分支：test/cpp_async_mtp_pcp0924（rebase 到 upstream 99cef8c，PR #17355 Mooncake V2 支持 PCP）
 # 与 prefill_node_pd.sh 的差异：
-#   + 开启原生 PCP：--prefill-context-parallel-size 2，拓扑 PP2 x TP4 x PCP2（单机 16 卡）
+#   + 开启原生 PCP：--prefill-context-parallel-size 4，拓扑 PP2 x TP2 x PCP4（单机 16 卡）
 #   + 按 PR #16846 口径：prefill 走原生 PCP，不开 enable_dsa_cp（DSA-CP 暂不支持 P 节点）
 #   + TP8->TP4 后单卡权重翻倍，gpu-memory-utilization 0.75->0.85
 #   + P 节点保留 CPP(profiling_chunk)+SRF(short_request_first)，D 节点不开
@@ -54,13 +54,13 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
   --served-model-name glm-52 \
   --max-model-len 87040 \
   --max-num-batched-tokens 20480 \
-  --gpu-memory-utilization 0.85 \
+  --gpu-memory-utilization 0.80 \
   --api-server-count 1 \
   --max-num-seqs 8 \
   --no-enable-prefix-caching \
   --pipeline-parallel-size 2 \
-  --tensor-parallel-size 4 \
-  --prefill-context-parallel-size 2 \
+  --tensor-parallel-size 2 \
+  --prefill-context-parallel-size 4 \
   --cp-kv-cache-interleave-size 128 \
   --enable-chunked-prefill \
   --async-scheduling \
@@ -97,6 +97,6 @@ vllm serve /mnt/weight/GLM-5.2-W4A8C8-0713-MTP \
    "kv_port": "30100",
    "engine_id": "0",
    "kv_connector_extra_config": {
-       "prefill": {"dp_size": 1, "tp_size": 4, "pp_size": 2, "pcp_size": 2},
+       "prefill": {"dp_size": 1, "tp_size": 2, "pp_size": 2, "pcp_size": 4},
        "decode":  {"dp_size": 2, "tp_size": 8, "pp_size": 1}
    }}'

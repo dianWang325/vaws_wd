@@ -1,0 +1,62 @@
+INFO:     Started server process [41561]
+INFO:     Waiting for application startup.
+2026-09-28 00:10:14,475 INFO [dp_load_balance_proxy_server] Initialized 1 prefill clients and 1 decode clients in worker 41561.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+INFO:     80.5.9.129:36922 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:37010 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:50080 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47814 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:40716 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:46898 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:46902 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51148 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:39540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:34064 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:43844 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47726 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:39138 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:44588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47440 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:49174 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:52310 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:38616 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:53248 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:42850 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51276 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51292 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:49906 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:54492 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:45370 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:44210 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:59158 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:53144 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:41028 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:41038 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:33516 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:46556 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:41650 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:55684 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47202 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:41278 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:46762 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:57954 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:45510 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47002 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:57988 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:54806 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:37232 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:39858 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:47008 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:43488 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:49572 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51080 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:49386 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:36308 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:46278 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     80.5.9.129:51570 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41561]

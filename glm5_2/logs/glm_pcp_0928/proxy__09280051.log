@@ -1,0 +1,569 @@
+INFO:     Started server process [61084]
+INFO:     Waiting for application startup.
+2026-09-28 01:02:17,161 INFO [dp_load_balance_proxy_server] Initialized 1 prefill clients and 1 decode clients in worker 61084.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:40024 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:40034 - "GET /v1/models HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41114 - "GET /healthcheck HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55012 - "GET /healthcheck HTTP/1.1" 200 OK
+2026-09-28 01:04:24,796 WARNING [dp_load_balance_proxy_server] Attempt 1 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,802 WARNING [dp_load_balance_proxy_server] Attempt 2 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,808 WARNING [dp_load_balance_proxy_server] Attempt 3 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,808 ERROR [dp_load_balance_proxy_server] All 3 attempts failed for /completions.
+Error occurred in disagg prefill proxy server - /completions endpoint
+Traceback (most recent call last):
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+
+INFO:     80.5.9.129:35380 - "POST /v1/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 690, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 777, in wrapper
+    return handler_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 1149, in handle_completions
+    return await handle_completions_impl("/completions", request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,823 WARNING [dp_load_balance_proxy_server] Attempt 1 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,828 WARNING [dp_load_balance_proxy_server] Attempt 2 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,834 WARNING [dp_load_balance_proxy_server] Attempt 3 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,834 ERROR [dp_load_balance_proxy_server] All 3 attempts failed for /completions.
+Error occurred in disagg prefill proxy server - /completions endpoint
+Traceback (most recent call last):
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+
+INFO:     80.5.9.129:60552 - "POST /v1/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 690, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 777, in wrapper
+    return handler_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 1149, in handle_completions
+    return await handle_completions_impl("/completions", request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,845 WARNING [dp_load_balance_proxy_server] Attempt 1 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,850 WARNING [dp_load_balance_proxy_server] Attempt 2 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,856 WARNING [dp_load_balance_proxy_server] Attempt 3 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,856 ERROR [dp_load_balance_proxy_server] All 3 attempts failed for /completions.
+Error occurred in disagg prefill proxy server - /completions endpoint
+Traceback (most recent call last):
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+
+INFO:     80.5.9.129:60568 - "POST /v1/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 690, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 777, in wrapper
+    return handler_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 1149, in handle_completions
+    return await handle_completions_impl("/completions", request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,868 WARNING [dp_load_balance_proxy_server] Attempt 1 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,873 WARNING [dp_load_balance_proxy_server] Attempt 2 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,879 WARNING [dp_load_balance_proxy_server] Attempt 3 failed for /completions: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,879 ERROR [dp_load_balance_proxy_server] All 3 attempts failed for /completions.
+Error occurred in disagg prefill proxy server - /completions endpoint
+Traceback (most recent call last):
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+
+INFO:     80.5.9.129:60576 - "POST /v1/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 690, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 777, in wrapper
+    return handler_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 1149, in handle_completions
+    return await handle_completions_impl("/completions", request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 823, in send_request_to_service
+    response.raise_for_status()
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://80.5.9.129:18080/v1/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-09-28 01:04:24,891 WARNING [dp_load_balance_proxy_server] Attempt 1 failed for /completions: All connection attempts failed
+2026-09-28 01:04:24,894 WARNING [dp_load_balance_proxy_server] Attempt 2 failed for /completions: All connection attempts failed
+2026-09-28 01:04:24,897 WARNING [dp_load_balance_proxy_server] Attempt 3 failed for /completions: All connection attempts failed
+2026-09-28 01:04:24,898 ERROR [dp_load_balance_proxy_server] All 3 attempts failed for /completions.
+Error occurred in disagg prefill proxy server - /completions endpoint
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: All connection attempts failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 822, in send_request_to_service
+    response = await client.post(endpoint, json=req_data, headers=headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: All connection attempts failed
+
+INFO:     80.5.9.129:60578 - "POST /v1/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: All connection attempts failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 690, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 777, in wrapper
+    return handler_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 1149, in handle_completions
+    return await handle_completions_impl("/completions", request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 969, in handle_completions_impl
+    instance_info = await assign_instances(api, req_data, request_length, is_initial_request=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 913, in assign_instances
+    response = await send_request_to_service(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 832, in send_request_to_service
+    raise last_exc
+  File "/home/w00985415/vaws_wd/glm5_2/scripts/dp_load_balance_proxy_server.py", line 822, in send_request_to_service
+    response = await client.post(endpoint, json=req_data, headers=headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/python3.11.10/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/python3.11.10/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: All connection attempts failed
+INFO:     127.0.0.1:45024 - "GET /healthcheck HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61084]
