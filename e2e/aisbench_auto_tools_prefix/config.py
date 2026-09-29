@@ -11,10 +11,11 @@ WORK_PATH = "/usr/local/python3.11.10/lib/python3.11/site-packages"
 MODEL_NAME = "dsv4"
 # 模型权重路径, 用于读取 tokenizer
 MODEL_PATH = "/mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8"
+# /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp
 # 请求目的 IP
-HOST_IP = "80.5.9.138"
+HOST_IP = "80.5.9.130"
 # 请求目的端口
-HOST_PORT = "9000"
+HOST_PORT = "10800"
 
 # 模型baseUrl, 配置后会忽略HOST_IP、HOST_PORT配置
 URL=""

@@ -13,9 +13,7 @@ vllm serve /mnt/weight/Qwen3.5-27B \
     --prefill-context-parallel-size 2 \
     --pipeline-parallel-size 2 \
     --seed 1024 \
-    --quantization ascend \
     --served-model-name qwen3.5 \
-    --enable-expert-parallel \
     --enable-chunked-prefill \
     --no-enable-prefix-caching \
     --max-num-seqs 32 \
@@ -26,4 +24,5 @@ vllm serve /mnt/weight/Qwen3.5-27B \
     --no-enable-prefix-caching \
     --speculative-config '{"method": "qwen3_5_mtp", "num_speculative_tokens": 3, "enforce_eager": true}' \
     --compilation-config '{"cudagraph_mode":"FULL_DECODE_ONLY"}' \
-    --additional-config '{"enable_cpu_binding":true, "scheduler_config":{"profiling_chunk_config":{"enabled":true}}}'
+    --additional-config '{"enable_cpu_binding":true, "scheduler_config":{"profiling_chunk_config":{"enabled":true}}}' \
+    --limit-mm-per-prompt '{"image":0,"video":0}'

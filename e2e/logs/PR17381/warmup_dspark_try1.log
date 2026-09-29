@@ -1,0 +1,236 @@
+2026-09-29 19:38:58,138 - INFO - get env LANG = C.UTF-8
+2026-09-29 19:38:58,140 - INFO - aisbench.log has been cleared for this run.
+2026-09-29 19:38:58,140 - INFO - aisbench_all.log separator added for this run.
+2026-09-29 19:38:58,140 - INFO - input token length: 20479
+2026-09-29 19:38:58,140 - INFO - output token length: 1
+2026-09-29 19:38:58,140 - INFO - number of dataset: 5
+2026-09-29 19:38:58,140 - INFO - concurrency: 1
+2026-09-29 19:38:58,140 - INFO - request rate: 0
+2026-09-29 19:38:58,141 - INFO - test type: stream
+2026-09-29 19:38:58,141 - INFO - api type: completions
+2026-09-29 19:38:58,141 - INFO - test_times: 1
+2026-09-29 19:38:58,141 - INFO - v3.1 enable_think: False
+2026-09-29 19:38:58,141 - INFO - accuracy test: False
+2026-09-29 19:38:58,141 - INFO - npu numbers: 1
+2026-09-29 19:38:58,141 - INFO - prefix numbers: 1
+2026-09-29 19:38:58,141 - INFO - dataset repeat rate: 0.0
+2026-09-29 19:38:58,141 - INFO - test prefix dataset: False
+2026-09-29 19:38:58,141 - INFO - dataset type: normal
+2026-09-29 19:38:58,141 - INFO - seed: 1
+2026-09-29 19:38:58,141 - INFO - dp size: 1
+2026-09-29 19:38:58,141 - INFO - length_mean: None
+2026-09-29 19:38:58,141 - INFO - length_std: None
+2026-09-29 19:38:58,141 - INFO - length_min: None
+2026-09-29 19:38:58,141 - INFO - length_max: None
+2026-09-29 19:38:58,141 - WARNING - dataset work path /home/w00985415/vaws_wd/e2e/datasets not exist. creating it automatically.
+2026-09-29 19:38:58,142 - INFO - dataset work path /home/w00985415/vaws_wd/e2e/datasets created.
+2026-09-29 19:38:58,142 - INFO - dataset_name: GSM8K-in20479-num5-DeepSeek-V4-Flash-0731-w4a8.jsonl
+2026-09-29 19:38:58,142 - WARNING - Dataset GSM8K-in20479-num5-DeepSeek-V4-Flash-0731-w4a8.jsonl is not exist. Start create dataset
+2026-09-29 19:38:58,142 - INFO - 加载tokenizer: /mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8
+Generating dataset:   0%|          | 0/5 [00:00<?, ?row/s]Generating dataset:  20%|██        | 1/5 [00:00<00:00,  7.22row/s]Generating dataset:  60%|██████    | 3/5 [00:00<00:00, 11.28row/s]Generating dataset: 100%|██████████| 5/5 [00:00<00:00, 12.61row/s]Generating dataset: 100%|██████████| 5/5 [00:00<00:00, 11.84row/s]
+2026-09-29 19:38:59,485 - INFO - Dataset GSM8K-in20479-num5-DeepSeek-V4-Flash-0731-w4a8.jsonl created.
+2026-09-29 19:38:59,485 - INFO - dataset work path not exist. creating.
+2026-09-29 19:38:59,486 - INFO - dataset work path created.
+2026-09-29 19:38:59,486 - INFO - train dataset not exist. creating.
+2026-09-29 19:38:59,486 - INFO - train dataset created.
+2026-09-29 19:38:59,486 - INFO - test start, use command: ais_bench --models vllm_api_chat_temp --datasets gsm8k_gen_0_shot_cot_str_perf --mode perf --summarizer default_perf --work-dir /home/w00985415/vaws_wd/e2e/outputs/default --debug --num-warmups 0 2>&1 | tee -a aisbench.log | tee -a aisbench_all.log
+2026-09-29 19:38:59,486 - INFO - [开始] 全量数据集测试
+2026-09-29 19:38:59,486 - INFO - Api config file:
+2026-09-29 19:38:59,487 - INFO - make symlink: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/models/vllm_api/vllm_api_chat_temp.py ==> /home/w00985415/vaws_wd/e2e/aisbench_auto_tools_prefix/temp_api.py
+2026-09-29 19:38:59,488 - INFO - src_file: /home/w00985415/vaws_wd/e2e/datasets/GSM8K-in20479-num5-DeepSeek-V4-Flash-0731-w4a8.jsonl
+2026-09-29 19:38:59,488 - INFO - dst_file: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/datasets/gsm8k/test.jsonl
+2026-09-29 19:38:59,488 - INFO - make symlink: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/datasets/gsm8k/test.jsonl ==> /home/w00985415/vaws_wd/e2e/datasets/GSM8K-in20479-num5-DeepSeek-V4-Flash-0731-w4a8.jsonl
+[2026-09-29 19:39:08,158] [ais_bench] [[32mINFO[0m] Loading vllm_api_chat_temp: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./models/vllm_api/vllm_api_chat_temp.py
+[2026-09-29 19:39:08,167] [ais_bench] [[32mINFO[0m] Loading gsm8k_gen_0_shot_cot_str_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./datasets/gsm8k/gsm8k_gen_0_shot_cot_str_perf.py
+[2026-09-29 19:39:08,170] [ais_bench] [[32mINFO[0m] Loading default_perf: /usr/local/python3.11.10/lib/python3.11/site-packages/ais_bench/benchmark/configs/./summarizers/perf/default_perf.py
+[2026-09-29 19:39:08,170] [ais_bench] [[32mINFO[0m] Current exp folder: /home/w00985415/vaws_wd/e2e/outputs/default/20260929_193859
+[2026-09-29 19:39:08,179] [ais_bench] [[32mINFO[0m] Starting inference tasks...
+[2026-09-29 19:39:08,179] [ais_bench] [[32mINFO[0m] Partitioned into 1 tasks.
+[2026-09-29 19:39:08,179] [ais_bench] [[32mINFO[0m] Merging datasets with the same model and inferencer...
+[2026-09-29 19:39:08,245] [ais_bench] [[32mINFO[0m] Launch TasksMonitor, PID: 47302, Refresh interval: 0.5, Run in background: True
+[2026-09-29 19:39:18,014] [ais_bench] [[32mINFO[0m] Debug mode, print progress directly
+[2026-09-29 19:39:18,016] [ais_bench] [[32mINFO[0m] Task [vllm-api-stream-completions/gsm8k]
+[2026-09-29 19:39:18,037] [ais_bench] [[32mINFO[0m] Zero Retriever initialized, returning empty shot case for all queries
+[2026-09-29 19:39:18,038] [ais_bench] [[32mINFO[0m] Apply ice template finished
+[2026-09-29 19:39:18,039] [ais_bench] [[33mWARNING[0m] VLLMCustomAPIStream is deprecated, please use VLLMCustomAPI with stream=True instead.
+[2026-09-29 19:39:18,039] [ais_bench] [[32mINFO[0m] Warmup size is 0, skip...
+[2026-09-29 19:39:18,040] [ais_bench] [[32mINFO[0m] Dataset needed memory size: 0.37248039 MB
+[2026-09-29 19:39:18,040] [ais_bench] [[32mINFO[0m] Memory usage check passed: 8.31% < 80% (Available: 1770.70 GB)
+[2026-09-29 19:39:18,042] [ais_bench] [[33mWARNING[0m] The request rate is below 0.1, resulting in an excessively long interval between two consecutive requests.
+[2026-09-29 19:39:18,042] [ais_bench] [[32mINFO[0m] Traffic request rate: 0 RPS with burstiness 1.0.
+[2026-09-29 19:39:18,042] [ais_bench] [[32mINFO[0m] Request rate (0.0) or ramp end rps (None) < 0.001, sending all requests simultaneously
+[2026-09-29 19:39:18,043] [ais_bench] [[32mINFO[0m] Debug mode, run with concurrency: 1
+[2026-09-29 19:39:18,143] [ais_bench] [[32mINFO[0m] All subprocesses have finished deserializing the first batch of data
+[2026-09-29 19:39:18,243] [ais_bench] [[32mINFO[0m] Starting progress bar Total data num: 5 Finished data num: 0 Left data num: 5
+Progress:   0%|          | 0/5 [00:00<?, ?case/s]
+[A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=0 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (1.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (1.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [A
+POST=1 (0.0/s)  RECV=0 (0.0/s)  FAIL=0 (0.0/s)  FIN=0 (0.0/s)   [AProgress:  20%|██        | 1/5 [00:28<01:55, 28.82s/case]
+POST=2 (1.0/s)  RECV=1 (1.0/s)  FAIL=0 (0.0/s)  FIN=1 (1.0/s)   [A
+POST=2 (1.0/s)  RECV=1 (1.0/s)  FAIL=0 (0.0/s)  FIN=1 (1.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [A
+POST=2 (0.0/s)  RECV=1 (0.0/s)  FAIL=0 (0.0/s)  FIN=1 (0.0/s)   [AProgress:  40%|████      | 2/5 [00:32<00:42, 14.22s/case]
+POST=3 (1.0/s)  RECV=2 (1.0/s)  FAIL=0 (0.0/s)  FIN=2 (1.0/s)   [A
+POST=3 (1.0/s)  RECV=2 (1.0/s)  FAIL=0 (0.0/s)  FIN=2 (1.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [A
+POST=3 (0.0/s)  RECV=2 (0.0/s)  FAIL=0 (0.0/s)  FIN=2 (0.0/s)   [AProgress:  60%|██████    | 3/5 [00:34<00:17,  8.64s/case]
+POST=4 (1.0/s)  RECV=3 (1.0/s)  FAIL=0 (0.0/s)  FIN=3 (1.0/s)   [A
+POST=4 (1.0/s)  RECV=3 (1.0/s)  FAIL=0 (0.0/s)  FIN=3 (1.0/s)   [AProgress:  80%|████████  | 4/5 [00:35<00:05,  5.63s/case]
+POST=5 (1.0/s)  RECV=4 (1.0/s)  FAIL=0 (0.0/s)  FIN=4 (1.0/s)   [A
+POST=5 (1.0/s)  RECV=4 (1.0/s)  FAIL=0 (0.0/s)  FIN=4 (1.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [A
+POST=5 (0.0/s)  RECV=4 (0.0/s)  FAIL=0 (0.0/s)  FIN=4 (0.0/s)   [AProgress: 100%|██████████| 5/5 [00:37<00:00,  4.32s/case]
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   [A
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   [AProgress: 100%|██████████| 5/5 [00:38<00:00,  7.61s/case]
+POST=5 (0.0/s)  RECV=5 (1.0/s)  FAIL=0 (0.0/s)  FINISH=5 (1.0/s)   
+[2026-09-29 19:39:56,273] [ais_bench] [[32mINFO[0m] Api infer task time elapsed: 38.26s
+[2026-09-29 19:39:58,396] [ais_bench] [[32mINFO[0m] Inference tasks completed.
+[2026-09-29 19:39:58,397] [ais_bench] [[32mINFO[0m] Summarizing performance results...
+Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details:   0%|          | 0/5 [00:00<?, ?it/s]Calculating performance details: 100%|██████████| 5/5 [00:01<00:00,  4.98it/s]Calculating performance details: 100%|██████████| 5/5 [00:01<00:00,  4.53it/s]Calculating performance details: 100%|██████████| 5/5 [00:01<00:00,  4.53it/s]
+/usr/local/python3.11.10/lib/python3.11/site-packages/plotly/offline/offline.py:150: UserWarning: 
+Unrecognized config options supplied: ['showLink']
+  warnings.warn(
+[2026-09-29 19:40:00,661] [ais_bench] [[32mINFO[0m] Request timeline and concurrency chart saved to /home/w00985415/vaws_wd/e2e/outputs/default/20260929_193859/performances/vllm-api-stream-completions/gsm8k_plot.html
+[2026-09-29 19:40:00,661] [ais_bench] [[32mINFO[0m] The gsm8k_plot has been saved in /home/w00985415/vaws_wd/e2e/outputs/default/20260929_193859/performances/vllm-api-stream-completions/gsm8k_plot.html
+[2026-09-29 19:40:00,666] [ais_bench] [[32mINFO[0m] Converting performance results for stage...
+[2026-09-29 19:40:00,666] [ais_bench] [[32mINFO[0m] Performance results conversion completed!
+[2026-09-29 19:40:00,666] [ais_bench] [[32mINFO[0m] Starting metrics calculation...
+[2026-09-29 19:40:00,670] [ais_bench] [[32mINFO[0m] Starting common metrics calculation...
+[2026-09-29 19:40:00,671] [ais_bench] [[32mINFO[0m] Adding units to metrics...
+[2026-09-29 19:40:00,671] [ais_bench] [[32mINFO[0m] Performance data calculation completed!
+[2026-09-29 19:40:00,674] [ais_bench] [[32mINFO[0m] Performance Results of task [vllm-api-stream-completions/gsm8k]: 
+╒══════════════════════════╤═════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤════════════════╤═════╕
+│ Performance Parameters   │ Stage   │ Average        │ Min            │ Max            │ Median         │ P75            │ P90            │ P99            │  N  │
+╞══════════════════════════╪═════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪════════════════╪═════╡
+│ E2EL                     │ total   │ 7497.4 ms      │ 1637.8 ms      │ 28068.5 ms     │ 1731.8 ms      │ 4348.9 ms      │ 18580.7 ms     │ 27119.8 ms     │  5  │
+├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
+│ TTFT                     │ total   │ 7497.4 ms      │ 1637.7 ms      │ 28068.5 ms     │ 1731.8 ms      │ 4348.8 ms      │ 18580.6 ms     │ 27119.7 ms     │  5  │
+├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
+│ ITL                      │ total   │ 0.1 ms         │ 0.1 ms         │ 0.1 ms         │ 0.1 ms         │ 0.1 ms         │ 0.1 ms         │ 0.1 ms         │  5  │
+├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
+│ InputTokens              │ total   │ 20479.0        │ 20479.0        │ 20479.0        │ 20479.0        │ 20479.0        │ 20479.0        │ 20479.0        │  5  │
+├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
+│ OutputTokens             │ total   │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │ 1.0            │  5  │
+├──────────────────────────┼─────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────┤
+│ OutputTokenThroughput    │ total   │ 0.4084 token/s │ 0.0356 token/s │ 0.6106 token/s │ 0.5774 token/s │ 0.5882 token/s │ 0.6016 token/s │ 0.6097 token/s │  5  │
+╘══════════════════════════╧═════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧════════════════╧═════╛
+╒══════════════════════════╤═════════╤═══════════════════╕
+│ Common Metric            │ Stage   │ Value             │
+╞══════════════════════════╪═════════╪═══════════════════╡
+│ Benchmark Duration       │ total   │ 37489.6177 ms     │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Requests           │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Failed Requests          │ total   │ 0                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Success Requests         │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Concurrency              │ total   │ 0.9999            │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Max Concurrency          │ total   │ 1                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Request Throughput       │ total   │ 0.1334 req/s      │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Input Tokens       │ total   │ 102395            │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Prefill Token Throughput │ total   │ 2731.4906 token/s │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Generated Tokens   │ total   │ 5                 │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Input Token Throughput   │ total   │ 2731.2895 token/s │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Output Token Throughput  │ total   │ 0.1334 token/s    │
+├──────────────────────────┼─────────┼───────────────────┤
+│ Total Token Throughput   │ total   │ 2731.4229 token/s │
+╘══════════════════════════╧═════════╧═══════════════════╛[2026-09-29 19:40:00,694] [ais_bench] [[32mINFO[0m] Performance Result files located in /home/w00985415/vaws_wd/e2e/outputs/default/20260929_193859/performances/vllm-api-stream-completions.
+
+2026-09-29 19:40:02,984 - INFO - [完成] 全量数据集测试完成，结果保存在aisbench_result.csv
+2026-09-29 19:40:02,986 - INFO - {'current_time': '2026-09-29 19:40:02', 'input_len': 20479.0, 'output_len': 1.0, 'total_req': 5.0, 'max_cc': '1', 'cc': 0.9999, 'rr': '0', 'repeat_rate': 0.0, 'TTFT avg': 7497.4, 'TTFT P90': 18580.6, 'TPOT avg': 99999, 'TPOT SLO_P90': 99999, 'E2E_time': 37.489617700000004, 'output_throughput': 0.1334, 'single_output_throughput': 0.1334, 'E2E_throughput': 2731.4229, 'single_E2E_throughput': 2731.4229, 'qps': 0.1334, 'qpm': 8.004, 'input_token_throughput': 2731.2895, 'prefill_token_throughput': 2731.4906, 'E2EL avg': 7497.4, 'E2EL P90': 18580.7}
+2026-09-29 19:40:02,986 - INFO - aisbench.log copied to: /home/w00985415/vaws_wd/e2e/outputs/default/20260929_193859
+2026-09-29 19:40:02,986 - INFO - aisbench.log saved at current directory: /home/w00985415/vaws_wd/e2e/aisbench_auto_tools_prefix
+2026-09-29 19:40:02,993 - INFO - 文件已存在，读取现有数据
+2026-09-29 19:40:02,997 - INFO - 成功追加新行
+from ais_bench.benchmark.models import VLLMCustomAPIStream
+
+models = [
+    dict(
+        attr="service",
+        type=VLLMCustomAPIStream,
+        abbr='vllm-api-stream-completions',
+        path="/mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8",
+        model="dsv4",
+        api_key="",
+        request_rate=0,
+        retry=2,
+        host_ip="80.5.9.130",
+        host_port=10800,
+        url="",
+        max_out_len=1,
+        batch_size=1,
+        generation_kwargs=dict(
+            temperature=0,
+            ignore_eos=True,
+            add_special_tokens=False
+        )
+    )
+]

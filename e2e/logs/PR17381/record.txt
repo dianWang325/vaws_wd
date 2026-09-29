@@ -1,0 +1,11 @@
+/home/w00985415/vaws_wd/e2e/logs/PR17381/dspark_dsv4_try1.log
+dspark  num=1  CPP on
+/home/w00985415/vaws_wd/e2e/logs/PR17381/dspark_dsv4_try2.log
+dspark  num=3  CPP on
+/home/w00985415/vaws_wd/e2e/logs/PR17381/dspark_dsv4_try3.log
+dspark  num=3  CPP off
+
+/home/w00985415/vaws_wd/e2e/logs/PR17381/mtp_dsv4_try1.log
+mtp  num=1  CPP off
+/home/w00985415/vaws_wd/e2e/logs/PR17381/mtp_dsv4_try2.log
+mtp  num=1  CPP on

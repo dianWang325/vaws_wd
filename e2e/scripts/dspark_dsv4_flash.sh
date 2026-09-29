@@ -29,13 +29,19 @@ vllm serve /mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8 \
     --port 10800 \
     --block-size 32 \
     --attention_config.indexer_kv_dtype int8 \
-    --speculative-config '{"method": "dspark", "num_speculative_tokens": 1, "enforce_eager": true}' \
+    --speculative-config '{"method": "dspark", "num_speculative_tokens": 3, "enforce_eager": true}' \
     --compilation-config '{"cudagraph_mode": "FULL_DECODE_ONLY"}' \
     --additional-config '
-    {"scheduler_config":{"profiling_chunk_config":{"enabled":true}},
-    "ascend_compilation_config":{
+    {"ascend_compilation_config":{
         "enable_npugraph_ex": true,
         "enable_static_kernel": false
         },
+    "scheduler_config":{"profiling_chunk_config":{"enabled":true}},
     "enable_cpu_binding": true,
     "multistream_overlap_shared_expert": true}'
+
+#    --speculative-config '{"method": "dspark", "num_speculative_tokens": 1, "enforce_eager": true}' \
+#    --speculative-config '{"method":"deepseek_mtp","num_speculative_tokens":1,"enforce_eager":true}' \
+#   "scheduler_config":{"profiling_chunk_config":{"enabled":true}},
+# vllm serve /mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8 \
+# vllm serve /mnt/weight/DeepSeek-V4-Flash-w8a8-mtp \
