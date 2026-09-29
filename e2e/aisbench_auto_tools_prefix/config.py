@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # 数据集文件夹路径，需可访问(请使用绝对路径)
-DATASET_PATH = "/home/w00985415/vaws_wd/dsv4_flash/datasets"
+DATASET_PATH = "/home/w00985415/vaws_wd/e2e/datasets"
 
 # aisbench 工作路径, 为 git clone aisbench 后得到的 benchmark 目录的绝对路径
 # 可通过命令 `pip show ais-bench-benchmark` 查询location
@@ -10,7 +10,7 @@ WORK_PATH = "/usr/local/python3.11.10/lib/python3.11/site-packages"
 # 服务化配置的模型名称
 MODEL_NAME = "dsv4"
 # 模型权重路径, 用于读取 tokenizer
-MODEL_PATH = "/mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8-scope-ci"
+MODEL_PATH = "/mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8"
 # 请求目的 IP
 HOST_IP = "80.5.9.138"
 # 请求目的端口
