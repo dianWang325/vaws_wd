@@ -1,3 +1,5 @@
+export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+export VLLM_USE_V2_MODEL_RUNNER=1
 export OMP_PROC_BIND=false
 export OMP_NUM_THREADS=10
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
@@ -24,13 +26,14 @@ vllm serve /mnt/weight/dsv4_flash_w4a8_0801/DeepSeek-V4-Flash-0731-w4a8 \
     --model-loader-extra-config='{"enable_multithread_load": true, "num_threads": 128}' \
     --quantization ascend \
     --enforce_eager \
-    --port 8000 \
+    --port 10800 \
     --block-size 32 \
     --attention_config.indexer_kv_dtype int8 \
     --speculative-config '{"method": "dspark", "num_speculative_tokens": 1, "enforce_eager": true}' \
     --compilation-config '{"cudagraph_mode": "FULL_DECODE_ONLY"}' \
     --additional-config '
-    {"ascend_compilation_config":{
+    {"scheduler_config":{"profiling_chunk_config":{"enabled":true}},
+    "ascend_compilation_config":{
         "enable_npugraph_ex": true,
         "enable_static_kernel": false
         },
