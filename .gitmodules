@@ -1,0 +1,4 @@
+[submodule "aisbench_auto_tools_prefix"]
+	path = aisbench_auto_tools_prefix
+	url = https://github.com/dianWang325/aisbench_auto_tools_prefix.git
+	branch = dev/wd_test
