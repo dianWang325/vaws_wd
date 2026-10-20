@@ -1,11 +1,82 @@
-__pycache__/
-*.pyc
-dsv4_flash/kernel_meta/
-dsv4_flash/outputs/
-dsv4_flash/logs/
-ms_service_profiler_adapter/kernel_meta/
-glm5_2/outputs/default/
+# Runtime logs / 运行日志
+*.log
+*.log.*
+logs/
+log/
+nohup.out
+
+# Benchmark and profiler output / 压测、性能采集输出
+outputs/
+profiling/
+profiler_output/
+ASCEND_PROFILER_OUTPUT/
+PROF_*/
+events.out.tfevents.*
+aisbench_result.csv
+picked_ids.txt
+
+# Ascend, Triton and compiler caches / 算子编译及运行缓存
 kernel_meta/
+kernel_meta_*/
+.cache/
+.triton/
+.triton_cache/
+torch_compile_debug/
+
+# Native build intermediates / 本地编译中间文件
+build/
+dist/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+.ninja_deps
+.ninja_log
+build.ninja
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.pdb
+*.ilk
+
+# Python bytecode, packaging and tool caches / Python 缓存及打包产物
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+
+# Temporary and crash files / 临时文件及崩溃转储
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.pid
+*.core
+*.dmp
+core.[0-9]*
+.DS_Store
+Thumbs.db
+
+# Shared datasets: keep the guide / 统一数据集目录仅跟踪说明
 /datasets/**
 !/datasets/**/
 !/datasets/README.md
+
+# Existing tracked archives stay tracked; .gitignore only excludes new files.
+# 已跟踪的实验归档不受影响；本规则仅忽略未跟踪文件。

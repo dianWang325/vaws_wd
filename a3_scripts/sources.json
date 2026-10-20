@@ -1,0 +1,58 @@
+{
+  "archive_root": "D:/experiment",
+  "note": "Source snapshots only. See README.md for execution-match limitations. Launchers are consolidated derivatives, not original script copies.",
+  "sources": [
+    {
+      "path": "202610172029_Qwen3-30B-A3B/evidence/scripts/qwen_p.sh",
+      "sha256": "d29e25ce1c9fedc76c4765cd1c9278cac91a52841fdd1a397904d69b3d5267d7"
+    },
+    {
+      "path": "202610172029_Qwen3-30B-A3B/evidence/scripts/qwen_d.sh",
+      "sha256": "06a538236c20649131d3b4daf15969c97f1bb11ee68788cd8926b45df6182573"
+    },
+    {
+      "path": "202610172029_Qwen3-30B-A3B/evidence/scripts/run_proxy.sh",
+      "sha256": "1b03148828c9ccc453f1a97d6c608595f7e4c3f0600734dc8195cf13aff0dc5c"
+    },
+    {
+      "path": "202610172029_Qwen3-30B-A3B/evidence/supplement/scripts/load_balance_proxy_server_example.py",
+      "sha256": "48e2b7091a85146707494de3fdfc588cbcce13f9ae10e6deeed655cf70492e3a"
+    },
+    {
+      "path": "202610172206_DeepSeek-V3.1-Terminus-w8a8-QuaRot-lfs/evidence/success/dsv31_p.sh",
+      "sha256": "e318764ed1cbd49867997ac6e22a0cbcbaec8e57683fc37378b00da2d03a4281"
+    },
+    {
+      "path": "202610182026_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/glm_p_2nodes.sh",
+      "sha256": "c3a15404ab14926909845f377331eba780071e68f1a248a420d7bd1cb1517b84"
+    },
+    {
+      "path": "202610182114_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/glm_p_2nodes_mtp_cpp_off.sh",
+      "sha256": "9ffb81250f4486b861a8244aca7634c54a6bbcd7808e63d1e387b9178aa25150"
+    },
+    {
+      "path": "202610182114_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/glm_p_2nodes_mtp_cpp_on.sh",
+      "sha256": "f06ba289d6c6a15f13423828387d149384518560a13304ea384c95b822cb2937"
+    },
+    {
+      "path": "202610191525_GLM-5.3-w8a8c8-Eco-Tech/evidence/experiments/1019_24_25_cpp_on_mtp_on_sync/service.sh",
+      "sha256": "aa05bf52e9eb8d2f8b0b7bfafa0841dff736b08a7178c1770fa6f642bb8b1490"
+    },
+    {
+      "path": "202610182321_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/logs/10182317_fourway/service_cpp_off_mtp_off_retry1.sh",
+      "sha256": "60537a3b9c4c7e109b20d5659028d1c38f2b7d72248c0b8981aec4ae90b95eee"
+    },
+    {
+      "path": "202610182321_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/logs/10182317_fourway/service_cpp_on_mtp_off.sh",
+      "sha256": "d0e0ae83ef82552ab5bf4482374dd88465f6295f0c4e6a69e463b1174e8a6670"
+    },
+    {
+      "path": "202610182321_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/logs/10182317_fourway/service_cpp_off_mtp_on.sh",
+      "sha256": "af57fee285dfb7481a8cf8c07912c1012515ce0d77f331c02b7711d3c4d289a7"
+    },
+    {
+      "path": "202610182321_GLM-5.2-w8a8c8/evidence/10.246.63.28/mnt/share/w00985415/scripts/logs/10182317_fourway/service_cpp_on_mtp_on.sh",
+      "sha256": "5d980ba66be9877f03b0123d714d7916491d37177a53439954786187acb44287"
+    }
+  ]
+}
