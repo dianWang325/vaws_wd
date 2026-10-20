@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Configure aisbench_auto_tools_prefix/config.py as described in its README first.
+# Configure the repository-root aisbench_auto_tools_prefix/config.py first.
 # Usage: bash scripts/run_aisbench.sh STAGE
 set -euo pipefail
 
 stage="${1:?expected warmup, prefill_fix, prefill_variable, fix, or variable}"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-tool_dir="${AISBENCH_TOOL_DIR:-$script_dir/../aisbench_auto_tools_prefix}"
+repo_root="$(cd "$script_dir/../.." && pwd)"
+tool_dir="${AISBENCH_TOOL_DIR:-$repo_root/aisbench_auto_tools_prefix}"
 case "$stage" in
   warmup)
     input_len="$((${MODEL_MAX_LEN:-20480} - 1))"
@@ -40,7 +41,7 @@ cd "$tool_dir"
 
 args=(--input_len "$input_len" --output_len "$output_len" --data_num "$data_num"
   --concurrency "$concurrency" --request_rate 0 --dataset_type normal
-  --api_type completions --test_type stream)
+  --api_mode completion --test_type stream)
 
 # The toolbox checks a fixed-length filename even for variable-length datasets.
 # Select its variable dataset explicitly; create it with its own generator only if absent.

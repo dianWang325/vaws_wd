@@ -36,7 +36,7 @@
 
 每次命令仅运行指定阶段。当前 `warmup` 使用独立的 200K 输入数据集；历史 1M 预热数据保留供回溯。`prefill_fix` 与 `fix` 共用 64K 输入数据集，`prefill_variable` 与 `variable` 共用变长输入数据集。工具箱以 GSM8K 文本和模型 tokenizer 生成数据。定长数据集由工具箱自身按文件名判断是否复用；变长数据集由入口脚本按工具箱生成的文件名判断是否存在，缺失时调用工具箱的 `create_multi_prefix_dataset` 生成，再通过工具箱支持的 `--dataset` 参数压测。这一步是为了避开工具箱当前变长分支误用定长文件名判断存在性的行为。变长采用工具箱的截断高斯参数：目标均值 65,536、标准差 16,384、下限 40,960、上限 81,920；24 条的实际算术均值及端点覆盖不保证精确值。前缀缓存由服务启动脚本控制。
 
-工具箱位于本目录内的 `aisbench_auto_tools_prefix/`；也可用 `AISBENCH_TOOL_DIR` 指向其他位置。先按[工具箱 README](https://github.com/rayn-zzz/aisbench_auto_tools_prefix#%E4%B8%80%E4%BF%AE%E6%94%B9configpy)准备 AISBench 环境，并设置工具箱 `config.py` 中的 `DATASET_PATH`、`WORK_PATH`、`MODEL_NAME`、`MODEL_PATH`、`HOST_IP`、`HOST_PORT` 与 `OUTPUT_DIR`。待服务健康后，分别执行：
+工具箱统一位于仓库根目录的 `aisbench_auto_tools_prefix/` 子模块，数据集目录约定见 [`../datasets/README.md`](../datasets/README.md)；也可用 `AISBENCH_TOOL_DIR` 指向其他位置。先按[工具箱 README](https://github.com/rayn-zzz/aisbench_auto_tools_prefix#%E4%B8%80%E4%BF%AE%E6%94%B9configpy)准备 AISBench 环境，并设置工具箱 `config.py` 中的 `DATASET_PATH`、`WORK_PATH`、`MODEL_NAME`、`MODEL_PATH`、`HOST_IP`、`HOST_PORT` 与 `OUTPUT_DIR`。待服务健康后，分别执行：
 
 ```bash
 bash scripts/run_aisbench.sh warmup

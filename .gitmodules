@@ -2,3 +2,7 @@
 	path = aisbench_auto_tools_prefix
 	url = https://github.com/dianWang325/aisbench_auto_tools_prefix.git
 	branch = dev/wd_test
+[submodule "d-node-prefix-bench-toolbox"]
+	path = d-node-prefix-bench-toolbox
+	url = https://github.com/dianWang325/d-node-prefix-bench-toolbox.git
+	branch = main
