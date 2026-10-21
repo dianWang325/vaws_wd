@@ -1,5 +1,5 @@
-nic_name="<your_nic_name>"
-local_ip="<your_ip>"
+nic_name="data0.172"
+local_ip="172.27.5.136"
 
 export HCCL_IF_IP=$local_ip
 export GLOO_SOCKET_IFNAME=$nic_name
@@ -20,7 +20,7 @@ export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libjemalloc.so.2:$LD_PRELOAD
 export TASK_QUEUE_ENABLE=1
 export LD_LIBRARY_PATH=/usr/local/Ascend/ascend-toolkit/latest/python/site-packages/mooncake:$LD_LIBRARY_PATH
 
-export ASCEND_RT_VISIBLE_DEVICES=$1
+export ASCEND_RT_VISIBLE_DEVICES=${1:-0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
 ## 10.246.63.24:/mnt/weight/Qwen3-235B-A22B-W8A8
 ## 80.5.9.x/80.5.17.x(80.5.9.128除外):/mnt/weight/Qwen3-235B-A22B-W8A8
 vllm serve /mnt/weight/Qwen3-235B-A22B-W8A8 \
