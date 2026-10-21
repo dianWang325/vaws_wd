@@ -20,7 +20,7 @@ export HCCL_OP_EXPANSION_MODE="AIV"
 export VLLM_PREFIX_CACHE_RETENTION_INTERVAL=4096
 export VLLM_USE_V2_MODEL_RUNNER=1
 
-vllm serve /mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8 \
+vllm serve /mnt/weight/DeepSeek-V4-Flash-w4a8 \
     --host 0.0.0.0 \
     --max-model-len 204800 \
     --max-num-batched-tokens 20480 \
@@ -39,7 +39,7 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-DSpark-w4a8 \
     --quantization ascend \
     --port 18080 \
     --no-enable-prefix-caching \
-    --speculative-config '{"method": "dspark", "num_speculative_tokens": 1, "enforce_eager": true}' \
+    --speculative-config '{"method": "mtp", "num_speculative_tokens": 1, "enforce_eager": true}' \
     --block-size 32 \
     --attention_config.indexer_kv_dtype int8 \
     --compilation-config '{"cudagraph_mode": "FULL_DECODE_ONLY"}' \
