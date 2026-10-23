@@ -1,13 +1,9 @@
 #!/bin/bash
 set -euo pipefail
-export ASCEND_LOCAL_COMM_RES='{"version":"1.2"}'
-export ASCEND_GLOBAL_RESOURCE_CONFIG='{"comm_resource_config.protocol_desc":["hccs:device"]}'
-nic_name="data0.172"
-local_ip="172.27.5.139"
 # Single-node prefill service (PP=2, TP=8, 16 local devices).
 # Update the IP/NIC values below for this machine.
-nic_name="${SERVICE_NIC:-enp162s0f0}"
-local_ip="${SERVICE_IP:-10.246.63.28}"
+nic_name="${SERVICE_NIC:-data0.172}"
+local_ip="${SERVICE_IP:-172.27.5.139}"
 
 # Historical V1/synchronous and V2/asynchronous profiles.
 PROFILE="${PROFILE:-mrv1}"
