@@ -1,5 +1,7 @@
+export ASCEND_LOCAL_COMM_RES='{"version":"1.2"}'
+export ASCEND_GLOBAL_RESOURCE_CONFIG='{"comm_resource_config.protocol_desc":["hccs:device"]}'
 nic_name="data0.172"
-local_ip="172.27.5.136"
+local_ip="172.27.5.139"
 export GLOO_SOCKET_IFNAME=$nic_name
 export TP_SOCKET_IFNAME=$nic_name
 export HCCL_SOCKET_IFNAME=$nic_name
@@ -22,12 +24,12 @@ export VLLM_USE_V2_MODEL_RUNNER=1
 
 vllm serve /mnt/weight/DeepSeek-V4-Flash-w4a8 \
     --host 0.0.0.0 \
-    --max-model-len 204800 \
-    --max-num-batched-tokens 20480 \
+    --max-model-len 131073 \
+    --max-num-batched-tokens 32768 \
     --served-model-name dsv4 \
     --gpu-memory-utilization 0.85 \
     --api-server-count 1 \
-    --max-num-seqs 64 \
+    --max-num-seqs 8 \
     --pipeline-parallel-size 2 \
     --tensor-parallel-size 8 \
     --enable-expert-parallel \
@@ -51,7 +53,7 @@ vllm serve /mnt/weight/DeepSeek-V4-Flash-w4a8 \
     "scheduler_config": {
         "profiling_chunk_config": {"enabled": true},
         "short_request_first_config": {
-            "enabled": true,
+            "enabled": false,
             "threshold": 66560,
             "long_max_wait_ms": 2000
             }

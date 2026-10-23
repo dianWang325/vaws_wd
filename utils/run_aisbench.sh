@@ -9,7 +9,7 @@ tool_dir="${AISBENCH_TOOL_DIR:-$script_dir/../aisbench_auto_tools_prefix}"
 
 case "$stage" in
   warmup)
-    input_len="$((${MODEL_MAX_LEN:-200000} - 1))"
+    input_len="$((${MODEL_MAX_LEN:-131073} - 1))"
     output_len=1
     data_num=5
     concurrency=1
