@@ -1,18 +1,125 @@
 #!/usr/bin/env bash
-# Warm up the profiling-based chunk predictor with both single-request and
-# mixed-batch shapes. Restart the serving process before running this script;
-# online calibration stops collecting samples after its configured window.
+# CPP online-calibration warmup for single-request and mixed-batch shapes.
 #
-# Usage:
+# Why this script exists
+# ----------------------
+# The history-aware CPP model contains a shared-max-waste feature. Single
+# concurrency always has x_waste=0, so the old warmup pattern (five
+# max_model_len requests at concurrency one) cannot identify that feature.
+# It may also consume the complete online-calibration window before any mixed
+# request is observed.
+#
+# This script runs two phases:
+#   1. Three half-context requests at concurrency one. These provide the three
+#      H=0 steps used to establish target latency and a small number of
+#      single/history samples.
+#   2. An ordered long/short dataset at concurrency two. A long request is
+#      submitted before a short request so that the short request can join a
+#      long-history request in a later forward.
+#
+# Run requirements
+# ----------------
+# 1. Restart the serving process immediately before running this script. CPP
+#    stops collecting execution-time samples after max_fit_chunk is reached;
+#    running this script against an already calibrated service cannot replace
+#    its old samples.
+# 2. Use the same tokenizer/model path in aisbench config.py as the service.
+# 3. Enable chunked prefill. Otherwise a request longer than one scheduling
+#    token budget cannot produce the intended history progression.
+# 4. WARMUP_MIX_CONCURRENCY must not exceed the service max_num_seqs.
+# 5. This is calibration traffic, not a throughput benchmark. Run the normal
+#    performance stages only after this script completes.
+#
+# Deployment parameters and warmup parameters
+# -------------------------------------------
+# Let:
+#   L = max_model_len - output_len
+#   M = max_num_batched_tokens
+#
+# max_model_len limits the complete request. With output_len=1, every input
+# length in this script must be in [1, max_model_len - 1]. Set MODEL_MAX_LEN to
+# the exact value from the serving command. If WARMUP_MIX_LENGTHS is omitted,
+# mixed lengths are scaled automatically from the 128K reference shapes using
+# MODEL_MAX_LEN.
+#
+# max_num_batched_tokens limits sum(C_i) in one scheduler step; it does not
+# limit the complete prompt length. This script does not pass that value to
+# AISBench, because it is a server-side option, but it must be considered when
+# choosing WARMUP_BASELINE_INPUT_LEN and WARMUP_MIX_LENGTHS.
+#
+# Recommended baseline length:
+#   WARMUP_BASELINE_INPUT_LEN = min(L, 2 * M)
+#
+# This normally gives each baseline request one H=0 step and one or a few H>0
+# steps. Avoid a baseline much larger than 2*M: three baseline requests may
+# then exhaust max_fit_chunk before phase 2 starts. Avoid a baseline <= M: it
+# may finish in one step and provide no history sample.
+#
+# Recommended mixed pairs, written as long,short,long,short,...:
+#   min(L, 4*M), min(L, M),
+#   min(L, 3*M), max(1, M/8),
+#   min(L, 3*M), max(1, M/16),
+#   min(L, 2*M), max(1, M/2)
+#
+# Prompt lengths only make a mixed shape likely; they do not directly set the
+# per-step C_i. The scheduler still chooses C_i from its remaining token
+# budget, CPP prediction, long_prefill_token_threshold, and request remainder.
+# If long_prefill_token_threshold is enabled below M, use that threshold as
+# the effective per-request chunk scale when selecting the lengths above.
+#
+# Examples
+# --------
+# max_model_len=131073, max_num_batched_tokens=32768:
+#   MODEL_MAX_LEN=131073 \
+#   WARMUP_BASELINE_INPUT_LEN=65536 \
+#   WARMUP_MIX_LENGTHS=131072,32768,98304,4096,98304,2048,65536,16384 \
 #   bash utils/run_aisbench_warmup.sh
 #
-# Optional environment variables:
-#   MODEL_MAX_LEN=131073
-#   WARMUP_BASELINE_REQUESTS=3
-#   WARMUP_BASELINE_INPUT_LEN=65536
-#   WARMUP_MIX_CONCURRENCY=2
-#   WARMUP_MIX_LENGTHS=131072,30848,119424,4736,98304,1920,65536,32768
-#   AISBENCH_TOOL_DIR=/path/to/aisbench_auto_tools_prefix
+# max_model_len=131073, max_num_batched_tokens=65536:
+#   MODEL_MAX_LEN=131073 \
+#   WARMUP_BASELINE_INPUT_LEN=131072 \
+#   WARMUP_MIX_LENGTHS=131072,65536,131072,8192,131072,4096,131072,32768 \
+#   bash utils/run_aisbench_warmup.sh
+#
+# Basic usage with the built-in 128K defaults:
+#   bash utils/run_aisbench_warmup.sh
+#
+# Optional environment variables
+# ------------------------------
+# MODEL_MAX_LEN
+#   Service max_model_len. Default: 131073. The script reserves one token for
+#   output and validates all generated input lengths against this value.
+#
+# WARMUP_BASELINE_REQUESTS
+#   Number of sequential baseline requests. Default/minimum: 3, matching the
+#   current target-latency calibration requirement of three H=0 samples.
+#
+# WARMUP_BASELINE_INPUT_LEN
+#   Input length of every baseline request. Default: (MODEL_MAX_LEN - 1) / 2.
+#   Override it with min(L, 2*M) when max_num_batched_tokens differs from the
+#   128K deployment baseline.
+#
+# WARMUP_MIX_CONCURRENCY
+#   Maximum concurrency during the mixed phase. Default/minimum: 2. Keep it no
+#   larger than max_num_seqs. Two is preferred because it produces easier to
+#   interpret request pairs without introducing unnecessary batch-size terms.
+#
+# WARMUP_MIX_LENGTHS
+#   Comma-separated, ordered prompt lengths. It must contain an even number of
+#   at least four values, each in [1, MODEL_MAX_LEN - 1]. Adjacent values are
+#   intended as long/short pairs. If omitted, the 128K reference sequence
+#   131072,30848,119424,4736,98304,1920,65536,32768 is scaled by input_cap.
+#
+# AISBENCH_TOOL_DIR
+#   Directory containing aisbench_test.py, config.py, generate_dataset.py, and
+#   GSM8K.jsonl. Default: ../aisbench_auto_tools_prefix relative to this file.
+#
+# Dataset reuse
+# -------------
+# The generated mixed JSONL filename contains every requested length and the
+# model directory name. Re-running the same configuration reuses that file.
+# Change WARMUP_MIX_LENGTHS or remove the cached JSONL if a new dataset is
+# required for the same model.
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
