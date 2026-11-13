@@ -1,19 +1,13 @@
-import ast, difflib, hashlib, json, pathlib, sys, traceback
+import difflib, hashlib, json, pathlib, sys, traceback
 import numpy as np
 import torch, torch_npu, triton
 from triton.runtime import driver
 R=pathlib.Path(__file__).resolve().parent
-P=R.parent
 sys.path.insert(0,str(R))
-source=(P/"speculator.original.py").read_text()
-node=next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef) and n.name=="_suffix_local_scan_kernel")
-a="".join(source.splitlines(keepends=True)[min(d.lineno for d in node.decorator_list)-1:node.end_lineno])
-b=a.replace("def _suffix_local_scan_kernel(","def _suffix_local_scan_kernel_early_exit(")
-assert b.count("    for t in range(MAX_DEPTH):")==1
-b=b.replace("    for t in range(MAX_DEPTH):","    t = 0\n    while (t < MAX_DEPTH) & (tl.sum(active.to(tl.int32), axis=0) > 0):")
-b=b.replace("        match_len += active.to(tl.int64)","        match_len += active.to(tl.int64)\n        t += 1")
-for name,text in [("kernel_A.py",a),("kernel_B.py",b)]:
-    (R/name).write_text("import triton\nimport triton.language as tl\n\n"+text)
+a=(R/"kernel_A.py").read_text().split("@triton.jit",1)[1]
+b=(R/"kernel_B.py").read_text().split("@triton.jit",1)[1]
+a="@triton.jit"+a
+b="@triton.jit"+b
 (R/"A_to_B.diff").write_text("".join(difflib.unified_diff(a.splitlines(True),b.splitlines(True),fromfile="A",tofile="B")))
 assert a.count("load_mask = candidate_mask")==b.count("load_mask = candidate_mask")==1
 torch.npu.set_device(0)
@@ -79,7 +73,7 @@ if __name__=="__main__":
                     result={"case":case,"variant":label,"status":"failed","error":error}
                 results.append(result);print(json.dumps(result),flush=True)
                 (R/"correctness.json").write_text(json.dumps(results,indent=2))
-        manifest={"commit":"c8ba92bf77e499a1b3ed5da7b9d881757f871fd9","source_path":"vllm_ascend/ops/triton/spec_decode/suffix.py","A_sha256":hashlib.sha256(a.encode()).hexdigest(),"B_sha256":hashlib.sha256(b.encode()).hexdigest(),"target":repr(driver.active.get_current_target()),"B_change":"only for->while active-reduction condition plus induction variable; function renamed for profiler attribution","device":0,"MAX_DEPTH":DEPTH,"BLOCK":BLOCK,"grid":[N,NB],"stride":STRIDE,"Lp1":RADIX,"num_warps":4}
+        manifest={"commit":"c8ba92bf77e499a1b3ed5da7b9d881757f871fd9","source_path":"vllm_ascend/ops/triton/spec_decode/suffix.py","A_sha256":hashlib.sha256(a.rstrip().encode()).hexdigest(),"B_sha256":hashlib.sha256(b.rstrip().encode()).hexdigest(),"target":repr(driver.active.get_current_target()),"B_change":"only for->while active-reduction condition plus induction variable; function renamed for profiler attribution","device":0,"MAX_DEPTH":DEPTH,"BLOCK":BLOCK,"grid":[N,NB],"stride":STRIDE,"Lp1":RADIX,"num_warps":4}
         (R/"manifest.json").write_text(json.dumps(manifest,indent=2))
         if not all(x.get("exact_match") for x in results): sys.exit(1)
     elif mode=="profile":
