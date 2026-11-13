@@ -1,0 +1,9 @@
+# Suffix scan A/B
+
+The operator harness uses the extracted #20854 fixed-depth scan (A) and the same scan with program-level early exit (B). Run `python ab_scan.py` on an idle NPU with the matching torch-npu and Triton-Ascend environment. The depth and mixed sweeps use `depth_program_sweep/sweep.py` and `mixed_depth_sweep/mixed.py`. Run the corresponding analyzer after collecting device timings with msprof. The per-block harness uses the matching mixed-sweep input references.
+
+For DeepSeek-V4-Flash PD + PCP, prepare a fresh directory under your writable logs tree and set `PD_EXPERIMENT_ROOT` to that directory. Restore `formal.csv`, `warm16.csv`, `formal_workload.jsonl`, `source_snapshots/suffix.{A,B}.py`, the Python files from `toolbox/`, and the archived `aisbench_runtime/` tree from the experiment evidence. The toolbox needs the matching AISBench CLI and its dependencies on PATH. Use a writable, private copy of both directories because the launcher generates API and dataset configuration there. Set `ASCEND_REPO` and `VLLM_REPO` if the source checkouts have moved. The source baseline includes Ascend #20789 and the vLLM suffix AV changes recorded in the experiment.
+
+Run `bash dsv4flash_pd_ab.sh` from `a3_scripts` in the NPU development container. The launcher uses a private mount namespace to select the scan variant. Reserve dies 0–11 and ports 18765–18767, 30700 and 30800 for this run. P uses MooncakeConnectorV2 with TP4 and PCP2. D uses TP4 with suffix AV and FULL_DECODE_ONLY. Role-level NIC, model path and device assignments are in the launcher and controller. Results go under the supplied experiment directory.
+
+The benchmark checks all expected response IDs and their success status. The offline auditor checks prompts and scores all responses, uses full client elapsed time for throughput, and compares latency on requests with uniquely attributable timestamps.
